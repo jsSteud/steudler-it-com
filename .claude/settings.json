@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates/Pizzeria\")",
+      "Bash(pkill -f \"python3 -m http.server\")",
+      "Bash(python3 -m http.server 8081)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8081/)",
+      "Bash(ls \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates/Pizzeria/\")",
+      "Read(//Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates/Pizzeria/**)",
+      "Bash(ls \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/\")",
+      "Read(//Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/**)",
+      "Bash(mkdir -p \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Webseite/Templates\" && mv \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates/Pizzeria\" \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Webseite/Templates/Pizzeria\" && ls \"/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Webseite/Templates/\")",
+      "Bash(aws sts *)",
+      "Bash(lsof -i :8080 -sTCP:LISTEN)"
+    ],
+    "additionalDirectories": [
+      "/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates",
+      "/Users/jaschasteudler/Library/Mobile Documents/com~apple~CloudDocs/daten.me/Steudler IT Solutions/Templates/Pizzeria"
+    ]
+  }
+}

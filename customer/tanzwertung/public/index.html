@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanzwertung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen active">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-icon">🏆</div>
+        <h1>Tanzwertung</h1>
+        <p class="login-subtitle">Bitte Rolle auswählen</p>
+      </div>
+      <div class="role-grid">
+        <button class="role-card wr1" onclick="selectRole('referee1')">
+          <div class="role-badge">WR 1</div>
+          <div class="role-name">Wertungsrichter 1</div>
+        </button>
+        <button class="role-card wr2" onclick="selectRole('referee2')">
+          <div class="role-badge">WR 2</div>
+          <div class="role-name">Wertungsrichter 2</div>
+        </button>
+        <button class="role-card wr3" onclick="selectRole('referee3')">
+          <div class="role-badge">WR 3</div>
+          <div class="role-name">Wertungsrichter 3</div>
+        </button>
+        <button class="role-card komitee" onclick="selectRole('committee')">
+          <div class="role-badge">KOM</div>
+          <div class="role-name">Komitee</div>
+        </button>
+      </div>
+      <div id="connection-status" class="connection-status connecting">
+        <span class="status-dot"></span>
+        <span class="status-text">Verbinde...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Referee Screen -->
+  <div id="referee-screen" class="screen">
+    <header class="app-header">
+      <div class="header-brand">
+        <span id="ref-badge" class="badge wr1">WR 1</span>
+        <span id="ref-title" class="header-title">Wertungsrichter 1</span>
+      </div>
+      <div class="header-progress">
+        <div class="progress-bar-wrap">
+          <div id="ref-progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="ref-progress-text" class="progress-text">0 / 100 bewertet</span>
+      </div>
+      <div class="header-actions">
+        <span id="ref-conn-dot" class="conn-dot connecting" title="Verbindungsstatus"></span>
+        <button class="btn-ghost" onclick="switchRole()">Rolle wechseln</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="col-nr">Nr.</th>
+            <th>Starter</th>
+            <th class="col-score">Wertung (0 – 100)</th>
+            <th class="col-status"></th>
+          </tr>
+        </thead>
+        <tbody id="referee-tbody"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Committee Screen -->
+  <div id="committee-screen" class="screen">
+    <header class="app-header">
+      <div class="header-brand">
+        <span class="badge komitee-badge">KOM</span>
+        <span class="header-title">Komitee – Gesamtübersicht</span>
+      </div>
+      <div class="header-chips">
+        <span class="chip wr1-chip">WR 1: <strong id="prog-wr1">0</strong>/100</span>
+        <span class="chip wr2-chip">WR 2: <strong id="prog-wr2">0</strong>/100</span>
+        <span class="chip wr3-chip">WR 3: <strong id="prog-wr3">0</strong>/100</span>
+      </div>
+      <div class="header-actions">
+        <span id="kom-conn-dot" class="conn-dot connecting" title="Verbindungsstatus"></span>
+        <label class="toggle-label">
+          <input type="checkbox" id="sort-by-total" onchange="toggleSort()"> Rang-Ansicht
+        </label>
+        <button class="btn-ghost" onclick="exportCSV()">CSV Export</button>
+        <button class="btn-danger" onclick="confirmReset()">Zurücksetzen</button>
+        <button class="btn-ghost" onclick="switchRole()">Rolle wechseln</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <table class="data-table overview-table" id="committee-table">
+        <thead id="committee-thead">
+          <tr>
+            <th class="col-nr">Nr.</th>
+            <th class="col-ref wr1-head">WR 1</th>
+            <th class="col-ref wr2-head">WR 2</th>
+            <th class="col-ref wr3-head">WR 3</th>
+            <th class="col-total">Gesamt</th>
+          </tr>
+        </thead>
+        <tbody id="committee-tbody"></tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

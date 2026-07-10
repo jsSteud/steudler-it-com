@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizzeria Da Mario – Wien</title>
+  <meta name="description" content="Steinofenpizza in Wien seit 1987. Täglich geöffnet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-strip-inner">
+      <span class="info-item">Musterstraße 12, 1010 Wien</span>
+      <span class="info-sep">·</span>
+      <span class="info-item">Mo–Sa 11–22 Uhr &nbsp;·&nbsp; So 12–21 Uhr</span>
+      <span class="info-sep">·</span>
+      <span class="info-item"><a href="tel:+431234567890" style="color:white;font-weight:600;">+43 1 234 567 890</a></span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Da Mario</a>
+      <button class="nav-hamburger" aria-label="Menü" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#speisekarte">Speisekarte</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#standort">Standort</a></li>
+        <li class="nav-call"><a href="tel:+431234567890">Anrufen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Seit 1987 in Wien</span>
+      <h1>Echte Pizza.<br><em>Wie in Neapel.</em></h1>
+      <p>Frisch gebacken im Steinofen, mit Zutaten direkt aus Italien – täglich zubereitet von unserer Familie.</p>
+      <div class="hero-buttons">
+        <a href="tel:+431234567890" class="btn btn-call">Jetzt anrufen</a>
+        <a href="#speisekarte" class="btn btn-outline">Zur Speisekarte</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="ueber-uns">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Innenraum der Pizzeria Da Mario" loading="lazy" />
+        </div>
+        <div class="about-content">
+          <div class="section-label">Geschichte</div>
+          <h2 class="section-title">Drei Generationen,<br>ein Rezept.</h2>
+          <p>Mario Rossi brachte das Rezept 1987 aus Neapel mit nach Wien. Seitdem hat sich wenig geändert – der Teig ruht noch immer 48 Stunden, der Steinofen brennt ab zehn Uhr morgens.</p>
+          <p>Heute führt seine Tochter das Lokal weiter. Die Stammgäste kennen sie beim Namen, die Karte kennen sie auswendig.</p>
+          <div class="about-facts">
+            <div class="fact">
+              <span class="fact-number">1987</span>
+              <span class="fact-label">gegründet</span>
+            </div>
+            <div class="fact">
+              <span class="fact-number">48 h</span>
+              <span class="fact-label">Teigruhe</span>
+            </div>
+            <div class="fact">
+              <span class="fact-number">450°</span>
+              <span class="fact-label">Steinofen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section section-alt" id="speisekarte">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Speisekarte</div>
+        <h2 class="section-title">Was wir kochen</h2>
+        <p class="section-subtitle">Alle Pizzen aus dem Steinofen. Allergene auf Anfrage.</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="showTab('pizzen', this)">Pizzen</button>
+        <button class="tab-btn" onclick="showTab('pasta', this)">Pasta</button>
+        <button class="tab-btn" onclick="showTab('salate', this)">Salate</button>
+        <button class="tab-btn" onclick="showTab('desserts', this)">Desserts</button>
+        <button class="tab-btn" onclick="showTab('getraenke', this)">Getränke</button>
+      </div>
+
+      <!-- PIZZEN -->
+      <div class="menu-category active" id="tab-pizzen">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Margherita</div>
+              <div class="menu-item-desc">Tomatensauce, Mozzarella, Basilikum</div>
+            </div>
+            <div class="menu-item-price">9,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Prosciutto</div>
+              <div class="menu-item-desc">Tomatensauce, Mozzarella, Schinken</div>
+            </div>
+            <div class="menu-item-price">12,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Diavola</div>
+              <div class="menu-item-desc">Tomatensauce, Mozzarella, Salami piccante, Chili</div>
+            </div>
+            <div class="menu-item-price">13,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Quattro Stagioni</div>
+              <div class="menu-item-desc">Schinken, Champignons, Artischocken, Oliven</div>
+            </div>
+            <div class="menu-item-price">14,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Funghi</div>
+              <div class="menu-item-desc">Tomatensauce, Mozzarella, frische Champignons</div>
+            </div>
+            <div class="menu-item-price">12,00</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Calzone</div>
+              <div class="menu-item-desc">Schinken, Mozzarella, Ricotta, gebacken</div>
+            </div>
+            <div class="menu-item-price">14,00</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Tonno</div>
+              <div class="menu-item-desc">Tomatensauce, Mozzarella, Thunfisch, Zwiebeln</div>
+            </div>
+            <div class="menu-item-price">13,00</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Quattro Formaggi</div>
+              <div class="menu-item-desc">Mozzarella, Gorgonzola, Parmesan, Ricotta</div>
+            </div>
+            <div class="menu-item-price">14,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Vegetariana</div>
+              <div class="menu-item-desc">Zucchini, Paprika, Aubergine, Kirschtomaten</div>
+            </div>
+            <div class="menu-item-price">13,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Da Mario</div>
+              <div class="menu-item-desc">Prosciutto crudo, Rucola, Parmesan, Kirschtomaten</div>
+            </div>
+            <div class="menu-item-price">16,90</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASTA -->
+      <div class="menu-category" id="tab-pasta">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Spaghetti Bolognese</div>
+              <div class="menu-item-desc">Hausgemachte Fleischsauce, Parmesan</div>
+            </div>
+            <div class="menu-item-price">12,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Spaghetti Carbonara</div>
+              <div class="menu-item-desc">Ei, Pancetta, Parmesan, schwarzer Pfeffer</div>
+            </div>
+            <div class="menu-item-price">13,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Penne Arrabbiata</div>
+              <div class="menu-item-desc">Tomatensauce, Knoblauch, Chili — vegan</div>
+            </div>
+            <div class="menu-item-price">11,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Tagliatelle al Salmone</div>
+              <div class="menu-item-desc">Räucherlachs, Sahnesauce, Dill</div>
+            </div>
+            <div class="menu-item-price">15,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Rigatoni al Forno</div>
+              <div class="menu-item-desc">Überbacken mit Mozzarella und Fleischsauce</div>
+            </div>
+            <div class="menu-item-price">13,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Gnocchi Gorgonzola</div>
+              <div class="menu-item-desc">Hausgemachte Gnocchi, Gorgonzolasauce, Walnüsse</div>
+            </div>
+            <div class="menu-item-price">14,50</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SALATE -->
+      <div class="menu-category" id="tab-salate">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Insalata Mista</div>
+              <div class="menu-item-desc">Gemischter Salat, Hausvinaigrette</div>
+            </div>
+            <div class="menu-item-price">7,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Caesar Salad</div>
+              <div class="menu-item-desc">Romana, Croutons, Parmesan, Caesar Dressing</div>
+            </div>
+            <div class="menu-item-price">10,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Caprese</div>
+              <div class="menu-item-desc">Büffelmozzarella, Tomaten, Basilikum, Olivenöl</div>
+            </div>
+            <div class="menu-item-price">11,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Rucola</div>
+              <div class="menu-item-desc">Rucola, Kirschtomaten, Parmesan, Balsamico</div>
+            </div>
+            <div class="menu-item-price">9,90</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-category" id="tab-desserts">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Tiramisù</div>
+              <div class="menu-item-desc">Hausgemacht, nach Originalrezept</div>
+            </div>
+            <div class="menu-item-price">6,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Panna Cotta</div>
+              <div class="menu-item-desc">Mit Waldbeersauce</div>
+            </div>
+            <div class="menu-item-price">6,00</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Gelato</div>
+              <div class="menu-item-desc">2 Kugeln: Vanille, Schokolade, Pistazie oder Zitrone</div>
+            </div>
+            <div class="menu-item-price">4,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Cannoli Siciliani</div>
+              <div class="menu-item-desc">Knusprige Röllchen mit Ricottacreme</div>
+            </div>
+            <div class="menu-item-price">5,50</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GETRÄNKE -->
+      <div class="menu-category" id="tab-getraenke">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Wasser still / prickelnd</div>
+              <div class="menu-item-desc">0,25 l · 0,5 l</div>
+            </div>
+            <div class="menu-item-price">2,50 · 3,90</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Softdrinks</div>
+              <div class="menu-item-desc">Cola, Fanta, Sprite — 0,33 l</div>
+            </div>
+            <div class="menu-item-price">3,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Hauswein rot / weiß</div>
+              <div class="menu-item-desc">0,25 l · 0,5 l</div>
+            </div>
+            <div class="menu-item-price">5,00 · 9,00</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Bier vom Fass</div>
+              <div class="menu-item-desc">0,3 l · 0,5 l</div>
+            </div>
+            <div class="menu-item-price">3,80 · 5,20</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Espresso</div>
+              <div class="menu-item-desc">Illy</div>
+            </div>
+            <div class="menu-item-price">2,50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Cappuccino</div>
+              <div class="menu-item-desc">Vollmilch oder Hafermilch</div>
+            </div>
+            <div class="menu-item-price">3,90</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-note">Alle Preise inkl. MwSt. · Allergene auf Anfrage · Änderungen vorbehalten</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="galerie">
+    <div class="container">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=900&q=80" alt="Pizza aus dem Steinofen" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=600&q=80" alt="Frische Zutaten" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&q=80" alt="Steinofen" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=600&q=80" alt="Pasta" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurant" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL CTA -->
+  <section class="call-section">
+    <div class="container">
+      <h2>Tisch reservieren?</h2>
+      <p>Ruf uns einfach an – wir sind täglich für euch da.</p>
+      <a href="tel:+431234567890" class="phone-display">+43 1 234 567 890</a>
+    </div>
+  </section>
+
+  <!-- MAP & CONTACT -->
+  <section class="map-section" id="standort">
+    <div class="map-wrapper">
+      <div class="map-info">
+        <div>
+          <h2>So findet ihr uns</h2>
+        </div>
+        <div class="map-info-item">
+          <h4>Adresse</h4>
+          <p>Musterstraße 12<br />1010 Wien</p>
+        </div>
+        <div class="map-info-item">
+          <h4>Öffnungszeiten</h4>
+          <p>
+            Mo – Fr &nbsp;11:00 – 22:00<br />
+            Sa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:00 – 23:00<br />
+            So &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12:00 – 21:00
+          </p>
+        </div>
+        <div class="map-info-item">
+          <h4>Telefon</h4>
+          <a href="tel:+431234567890">+43 1 234 567 890</a>
+        </div>
+        <div class="map-info-item">
+          <h4>E-Mail</h4>
+          <a href="mailto:info@damario.at" style="color:rgba(255,255,255,0.65);font-size:0.9rem;font-weight:400;">info@damario.at</a>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=16.35%2C48.19%2C16.39%2C48.22&layer=mapnik&marker=48.2082%2C16.3738"
+          title="Standort Pizzeria Da Mario"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Pizzeria Da Mario &nbsp;·&nbsp; <a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a> &nbsp;·&nbsp; Website von <a href="https://www.steudler-it.com">Steudler IT Solutions</a></p>
+  </footer>
+
+  <script>
+    function showTab(id, btn) {
+      document.querySelectorAll('.menu-category').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

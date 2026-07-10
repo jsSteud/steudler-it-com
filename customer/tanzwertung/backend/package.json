@@ -1,0 +1,13 @@
+{
+  "name": "tanzwertung-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lambda-Handler fuer das Tanzwertung-Backend (API Gateway + DynamoDB)",
+  "scripts": {
+    "test": "node --test test/validate.test.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.600.0",
+    "@aws-sdk/lib-dynamodb": "^3.600.0"
+  }
+}

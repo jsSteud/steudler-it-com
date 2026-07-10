@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://sis-webseiten.s3-website.eu-central-1.amazonaws.com/webseiten/templates/nailstudio/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=1000&fit=crop&auto=format&q=80\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://www.steudler-it.com/webseite/demo/nagelstudio/\")"
+    ]
+  }
+}

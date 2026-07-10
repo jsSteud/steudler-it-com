@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.steudler-it.com)",
+      "Bash(python3 -m http.server 8080)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
+      "Bash(dig steudler-it.com +short)",
+      "Bash(dig www.steudler-it.com +short)",
+      "Bash(aws sts *)",
+      "Read(//private/tmp/**)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['ETag']\\); print\\(json.dumps\\(d['DistributionConfig']['Origins']['Items'][0], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); cfg=d['DistributionConfig']; print\\('Cert:', json.dumps\\(cfg['ViewerCertificate'], indent=2\\)\\); print\\('DefaultRoot:', cfg['DefaultRootObject']\\); print\\('Enabled:', cfg['Enabled']\\)\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} via www: %{url_effective}\\\\n\" -L https://www.steudler-it.com/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} via apex: %{url_effective}\\\\n\" -L https://steudler-it.com/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" https://www.steudler-it.com/)"
+    ]
+  }
+}
