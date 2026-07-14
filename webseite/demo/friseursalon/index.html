@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon Lumière – Friseursalon in Innsbruck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose: #E8C4C4;
+      --creme: #FAF3EE;
+      --deepbrown: #3B2A26;
+      --accent: #B98B73;
+      --gray: #8A776E;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background-color: var(--creme);
+      color: var(--deepbrown);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      background: var(--deepbrown);
+      color: white;
+      padding: 11px 60px 11px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+    .demo-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: var(--accent);
+      color: var(--deepbrown);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .demo-banner p {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+    .demo-banner a.banner-cta {
+      color: var(--rose);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+      border: 1px solid var(--rose);
+      padding: 5px 14px;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .demo-banner a.banner-cta:hover { background: var(--rose); color: var(--deepbrown); }
+    .banner-close {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 6px;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: white; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: rgba(250, 243, 238, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 20px rgba(59,42,38,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 27px;
+      font-weight: 600;
+      color: var(--deepbrown);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .logo em { color: var(--accent); font-style: italic; font-weight: 500; }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--deepbrown);
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--deepbrown);
+      color: var(--creme);
+      border: 1px solid var(--deepbrown);
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.35s;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: white; }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--deepbrown);
+      border: 1px solid var(--deepbrown);
+      padding: 12px 30px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+    .btn-secondary:hover { background: var(--deepbrown); color: white; }
+    .btn-outline-light {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 13px 30px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline-light:hover { border-color: white; background: rgba(255,255,255,0.12); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 23px;
+      height: 1.5px;
+      background: var(--deepbrown);
+      transition: all 0.3s;
+    }
+
+    /* ── ORNAMENT (typographic divider, replaces icons) ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 170px;
+      margin: 0 auto 22px;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.55;
+    }
+    .ornament-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--accent);
+    }
+    .ornament.light::before, .ornament.light::after { background: rgba(255,255,255,0.5); }
+    .ornament.light .ornament-mark { color: var(--rose); }
+
+    /* ── SECTIONS ── */
+    section { padding: 110px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 68px; }
+    .section-eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 46px;
+      line-height: 1.2;
+      color: var(--deepbrown);
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      color: var(--gray);
+      font-size: 16px;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg { position: absolute; inset: 0; background: var(--deepbrown); }
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: heroFade 18s infinite ease-in-out;
+    }
+    .hero-bg img:nth-child(1) { animation-delay: 0s; }
+    .hero-bg img:nth-child(2) { animation-delay: 9s; }
+    @keyframes heroFade {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }
+      45%  { opacity: 1; }
+      55%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(59,42,38,0.78) 0%, rgba(59,42,38,0.5) 45%, rgba(185,139,115,0.42) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 740px;
+      padding: 0 40px;
+      color: white;
+    }
+    .hero-content .ornament-mark { color: var(--rose); }
+    .hero-eyebrow {
+      color: var(--rose);
+      font-size: 12px;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 26px;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 66px;
+      line-height: 1.15;
+      color: white;
+      margin-bottom: 28px;
+    }
+    .hero-content h1 em { font-style: italic; color: var(--rose); font-weight: 500; }
+    .hero-content p {
+      color: rgba(255,255,255,0.88);
+      font-size: 18px;
+      line-height: 1.85;
+      max-width: 560px;
+      margin: 0 auto 46px;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.65);
+      font-size: 10.5px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 34px;
+      background: rgba(255,255,255,0.45);
+      margin: 10px auto 0;
+    }
+
+    /* ── FACTS STRIP ── */
+    .facts-strip { background: var(--deepbrown); color: white; padding: 56px 40px; }
+    .facts-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+      gap: 34px;
+    }
+    .fact .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--rose);
+      display: block;
+      line-height: 1;
+    }
+    .fact .lbl {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.72;
+      margin-top: 9px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #EFE4DC;
+    }
+    .service-card {
+      background: var(--creme);
+      padding: 46px 38px;
+      transition: all 0.35s;
+    }
+    .service-card:hover { background: var(--white); box-shadow: 0 18px 50px rgba(59,42,38,0.1); }
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 25px;
+      margin-bottom: 12px;
+      color: var(--deepbrown);
+    }
+    .service-card p { color: var(--gray); font-size: 14.5px; line-height: 1.8; margin-bottom: 20px; }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--deepbrown);
+      border-top: 1px solid rgba(59,42,38,0.12);
+      padding-top: 16px;
+      display: block;
+    }
+    .service-price span { font-size: 12.5px; font-weight: 400; font-family: 'Nunito Sans', sans-serif; color: var(--gray); }
+
+    /* ── GALLERY (masonry) ── */
+    .gallery { background: var(--creme); }
+    .gallery-grid {
+      column-count: 3;
+      column-gap: 20px;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #EFE4DC;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.045); }
+    .gallery-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(59,42,38,0.82);
+      backdrop-filter: blur(4px);
+      color: var(--rose);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(59,42,38,0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      letter-spacing: 1px;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-img-main { border-radius: 2px; overflow: hidden; aspect-ratio: 4/5; }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-accent {
+      position: absolute;
+      width: 44%;
+      bottom: -32px;
+      right: -32px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 6px solid var(--white);
+      box-shadow: 0 16px 45px rgba(59,42,38,0.16);
+      aspect-ratio: 1;
+    }
+    .about-img-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text .section-eyebrow { text-align: left; }
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 1.22;
+      margin-bottom: 20px;
+    }
+    .about-text p { color: var(--gray); font-size: 15px; line-height: 1.9; margin-bottom: 18px; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 30px 0 38px;
+    }
+    .about-feat {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--deepbrown);
+    }
+    .about-feat::before {
+      content: '—';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--deepbrown); }
+    .testimonials .section-header h2 { color: white; }
+    .testimonials .section-header p { color: rgba(255,255,255,0.55); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      padding: 40px 32px;
+    }
+    .stars { color: var(--rose); font-size: 14px; letter-spacing: 3px; margin-bottom: 22px; }
+    .testimonial-card blockquote {
+      color: rgba(255,255,255,0.8);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+    .t-author { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 18px; }
+    .t-name { font-weight: 700; color: white; font-size: 14px; }
+    .t-meta { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 3px; letter-spacing: 0.5px; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--creme); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 86px;
+      align-items: start;
+    }
+    .contact-info .section-eyebrow { text-align: left; }
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .contact-info > p { color: var(--gray); font-size: 15px; line-height: 1.85; margin-bottom: 40px; }
+    .contact-items { display: flex; flex-direction: column; gap: 26px; margin-bottom: 40px; }
+    .contact-item { border-left: 2px solid var(--accent); padding-left: 18px; }
+    .ci-lbl {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .ci-val { font-size: 15.5px; color: var(--deepbrown); font-weight: 600; line-height: 1.6; }
+    .map-frame { border-radius: 2px; overflow: hidden; border: 1px solid rgba(59,42,38,0.14); }
+    .map-frame iframe { display: block; width: 100%; height: 220px; border: 0; filter: sepia(12%) saturate(85%); }
+
+    /* Form */
+    .contact-form {
+      background: var(--white);
+      border-radius: 2px;
+      padding: 50px 46px;
+      box-shadow: 0 20px 60px rgba(59,42,38,0.08);
+    }
+    .contact-form h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 27px;
+      margin-bottom: 32px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--deepbrown);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #E4D8CE;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--deepbrown);
+      background: var(--creme);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { margin-top: 8px; }
+    .form-submit .btn-primary { width: 100%; text-align: center; padding: 15px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--deepbrown); color: rgba(255,255,255,0.55); padding: 64px 40px 30px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-demo-note {
+      background: rgba(185,139,115,0.1);
+      border: 1px solid rgba(185,139,115,0.3);
+      border-radius: 2px;
+      padding: 18px 26px;
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+    .footer-demo-note strong { color: var(--rose); }
+    .footer-demo-note a { color: var(--rose); font-weight: 700; text-decoration: none; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo { color: white; display: block; margin-bottom: 16px; }
+    .footer-brand .logo em { color: var(--rose); }
+    .footer-brand p { font-size: 14px; line-height: 1.8; }
+    .social-row { display: flex; gap: 10px; margin-top: 22px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .social-link:hover { background: var(--accent); color: white; }
+    .footer-col h4 {
+      color: white;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col ul a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--rose); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 26px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--rose); }
+
+    /* ── FLOATING DEMO BUTTON ── */
+    .demo-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      background: var(--deepbrown);
+      color: var(--rose);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 12px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(59,42,38,0.4);
+      transition: all 0.3s;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+    .demo-float:hover { background: var(--accent); color: white; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(59,42,38,0.78);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--white);
+      border-radius: 2px;
+      padding: 54px 50px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.35s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal .demo-badge { display: inline-block; margin-bottom: 24px; }
+    .modal h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 31px;
+      color: var(--deepbrown);
+      margin-bottom: 16px;
+    }
+    .modal > p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .modal-features {
+      background: var(--creme);
+      border-radius: 2px;
+      padding: 22px 26px;
+      margin: 22px 0 30px;
+      list-style: none;
+    }
+    .modal-features li {
+      font-size: 14px;
+      color: var(--deepbrown);
+      padding: 8px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .modal-features li::before { content: '—'; color: var(--accent); font-weight: 700; }
+    .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #B8ABA3;
+      line-height: 1;
+      padding: 4px 6px;
+    }
+    .modal-close:hover { color: var(--deepbrown); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-content h1 { font-size: 44px; }
+      .hero-content p { font-size: 16px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { column-count: 2; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 38px; }
+      nav { padding: 0 20px; }
+      section { padding: 78px 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0; right: 0;
+        background: var(--creme);
+        flex-direction: column;
+        padding: 22px 24px;
+        box-shadow: 0 12px 32px rgba(59,42,38,0.1);
+        gap: 18px;
+      }
+      nav { position: relative; }
+      .nav-links.open { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-content h1 { font-size: 34px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { column-count: 1; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 38px 26px; }
+      .modal-buttons { flex-direction: column; }
+      .hero-buttons { flex-direction: column; }
+      section { padding: 64px 20px; }
+      .section-header h2 { font-size: 34px; }
+      .contact-form { padding: 34px 24px; }
+      .demo-banner p { display: none; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── DEMO BANNER ── -->
+  <div class="demo-banner" id="demoBanner">
+    <div class="demo-banner-inner">
+      <span class="demo-badge">Demo-Website</span>
+      <p>Alle Texte, Bilder &amp; Preise sind Platzhalter – werden <strong>kostenlos</strong> durch Ihre echten Salon-Inhalte ersetzt.</p>
+      <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Friseursalon." class="banner-cta" target="_blank" rel="noopener">Jetzt auf WhatsApp anfragen →</a>
+    </div>
+    <button class="banner-close" onclick="document.getElementById('demoBanner').style.display='none'" aria-label="Banner schließen">✕</button>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="logo">Salon <em>Lumière</em></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#leistungen" onclick="closeNav()">Leistungen</a></li>
+        <li><a href="#galerie" onclick="closeNav()">Galerie</a></li>
+        <li><a href="#ueber-uns" onclick="closeNav()">Über uns</a></li>
+        <li><a href="#kontakt" onclick="closeNav()">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn-primary" onclick="closeNav()">Termin buchen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="start">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Friseursalon in Innsbruck</div>
+      <h1>Ihr Haar, unsere <em>Handschrift</em></h1>
+      <p>Ein ruhiger Ort für Haarschnitt, Farbe und Pflege – persönlich beraten, sorgfältig gearbeitet, ganz auf Sie abgestimmt.</p>
+      <div class="hero-buttons">
+        <a href="#kontakt" class="btn-primary">Termin vereinbaren</a>
+        <a href="#leistungen" class="btn-outline-light">Unsere Leistungen</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Entdecken</div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts-strip">
+    <div class="facts-inner">
+      <div class="fact">
+        <span class="num">12+</span>
+        <div class="lbl">Jahre in der Innsbrucker Altstadt</div>
+      </div>
+      <div class="fact">
+        <span class="num">3.200+</span>
+        <div class="lbl">Zufriedene Kundinnen &amp; Kunden</div>
+      </div>
+      <div class="fact">
+        <span class="num">40+</span>
+        <div class="lbl">Pflegeprodukte im Sortiment</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="leistungen">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unser Angebot</div>
+        <div class="ornament"><span class="ornament-mark">✳</span></div>
+        <h2>Unsere Leistungen</h2>
+        <p>Von klassischem Schnitt bis zu aufwändiger Coloration – jede Behandlung beginnt mit einem ausführlichen Beratungsgespräch.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-number">01</span>
+          <h3>Haarschnitt &amp; Styling</h3>
+          <p>Präziser Schnitt, abgestimmt auf Haarstruktur, Gesichtsform und Ihren Alltag – inklusive Wäsche und Föhn-Styling.</p>
+          <div class="service-price">ab 45 € <span>· ca. 45 Min.</span></div>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-number">02</span>
+          <h3>Coloration</h3>
+          <p>Ganzflächige Farbveränderung oder Ansatzauffrischung mit sorgfältig ausgewählten, schonenden Farbsystemen.</p>
+          <div class="service-price">ab 68 € <span>· ca. 90 Min.</span></div>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-number">03</span>
+          <h3>Balayage &amp; Strähnen</h3>
+          <p>Freihändig gemalte Übergänge für ein natürliches, sonnengeküsstes Ergebnis mit weichem Verlauf.</p>
+          <div class="service-price">ab 120 € <span>· ca. 150 Min.</span></div>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-number">04</span>
+          <h3>Braut- &amp; Festtagsstyling</h3>
+          <p>Elegante Hochsteckfrisuren und Styling für Hochzeit, Ball oder besondere Anlässe – auf Wunsch mit Probetermin.</p>
+          <div class="service-price">ab 95 € <span>· nach Absprache</span></div>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-number">05</span>
+          <h3>Herrenhaarschnitt</h3>
+          <p>Klassisch oder modern – Schnitt, Konturenarbeit und Bartpflege aus einer Hand.</p>
+          <div class="service-price">ab 32 € <span>· ca. 30 Min.</span></div>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-number">06</span>
+          <h3>Haarpflege-Behandlungen</h3>
+          <p>Intensivkuren, Keratin-Treatments und Kopfhautpflege für gesundes, widerstandsfähiges Haar.</p>
+          <div class="service-price">ab 38 € <span>· ca. 40 Min.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY (masonry) ── -->
+  <section class="gallery" id="galerie">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unsere Arbeiten</div>
+        <div class="ornament"><span class="ornament-mark">✳</span></div>
+        <h2>Galerie</h2>
+        <p>Hier können Ihre echten Fotos eingesetzt werden – Frisuren, Salon-Impressionen, Vorher-Nachher-Ergebnisse.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <span class="gallery-tag">Vorher / Nachher</span>
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <span class="gallery-tag">Vorher / Nachher</span>
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+        <div class="gallery-item reveal">
+          <span class="gallery-tag">Vorher / Nachher</span>
+          <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          <div class="gallery-overlay">Platzhalterbild</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="ueber-uns">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=900&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          </div>
+          <div class="about-img-accent">
+            <img src="https://images.unsplash.com/photo-1470259078422-826894b933aa?w=600&q=80" alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="section-eyebrow">Über uns</div>
+          <h2>Zuhause in der Altstadt seit 2014</h2>
+          <p>Salon Lumière liegt mitten in Innsbruck – ein ruhiger Rückzugsort mit hoher Fensterfront, Tageslicht und Platz zum Durchatmen. Wir glauben, dass ein gutes Haarergebnis mit einem guten Gespräch beginnt.</p>
+          <p>Unser Team begleitet Sie langfristig: von der ersten Farbberatung bis zur Pflege zuhause. Wir arbeiten mit ausgewählten, überwiegend veganen Produktlinien und nehmen uns bewusst Zeit für jeden Termin.</p>
+          <div class="about-features">
+            <div class="about-feat">Vegane Produkte</div>
+            <div class="about-feat">Individuelle Farbberatung</div>
+            <div class="about-feat">Entspannte Atmosphäre</div>
+            <div class="about-feat">Erfahrenes Team</div>
+            <div class="about-feat">Flexible Terminvergabe</div>
+            <div class="about-feat">Faire, transparente Preise</div>
+          </div>
+          <a href="#kontakt" class="btn-primary">Jetzt Termin buchen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Kundenstimmen</div>
+        <div class="ornament light"><span class="ornament-mark">✳</span></div>
+        <h2>Was unsere Kundinnen &amp; Kunden sagen</h2>
+        <p>Vertrauen entsteht über Zeit – hier ein paar Stimmen aus unserem Salonalltag.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Endlich ein Salon, in dem man sich Zeit für mich nimmt. Die Balayage sieht aus, als wäre sie gewachsen – so natürlich."</blockquote>
+          <div class="t-author">
+            <div class="t-name">Musterkundin A.</div>
+            <div class="t-meta">Stammkundin · Google Bewertung</div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Ruhige Atmosphäre, ehrliche Beratung, kein Verkaufsdruck. Meine Haare fühlen sich seit der Keratin-Kur ganz anders an."</blockquote>
+          <div class="t-author">
+            <div class="t-name">Musterkunde B.</div>
+            <div class="t-meta">Stammkunde · Google Bewertung</div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Für mein Brautstyling konnte ich mich zu hundert Prozent auf das Team verlassen. Genau der Look, den ich mir gewünscht hatte."</blockquote>
+          <div class="t-author">
+            <div class="t-name">Musterkundin C.</div>
+            <div class="t-meta">Neukundin · Google Bewertung</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="kontakt">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <div class="section-eyebrow">Kontakt &amp; Buchung</div>
+          <h2>Termin vereinbaren</h2>
+          <p>Schreiben Sie uns oder rufen Sie einfach an – wir finden gemeinsam den passenden Termin für Sie.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-lbl">Adresse</div>
+              <div class="ci-val">Maria-Theresien-Straße 14<br>6020 Innsbruck</div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-lbl">Telefon</div>
+              <div class="ci-val">+43 512 345 678</div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-lbl">E-Mail</div>
+              <div class="ci-val">info@salon-lumiere.at</div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-lbl">Öffnungszeiten</div>
+              <div class="ci-val">Di–Fr: 09:00–18:00 Uhr<br>Sa: 09:00–14:00 Uhr · Mo Ruhetag</div>
+            </div>
+          </div>
+          <div class="map-frame">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=11.3820%2C47.2540%2C11.4260%2C47.2840&amp;layer=mapnik&amp;marker=47.2692%2C11.4041"
+              title="Salon Lumière auf der Karte – Innsbruck Zentrum"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3>Termin anfragen</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vorname</label>
+                <input type="text" placeholder="Anna" />
+              </div>
+              <div class="form-group">
+                <label>Nachname</label>
+                <input type="text" placeholder="Mustermann" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>E-Mail-Adresse</label>
+              <input type="email" placeholder="ihre@email.at" />
+            </div>
+            <div class="form-group">
+              <label>Telefon <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <input type="tel" placeholder="+43 664 123 4567" />
+            </div>
+            <div class="form-group">
+              <label>Gewünschte Leistung</label>
+              <select>
+                <option value="">Bitte wählen …</option>
+                <option>Haarschnitt &amp; Styling</option>
+                <option>Coloration</option>
+                <option>Balayage &amp; Strähnen</option>
+                <option>Braut- &amp; Festtagsstyling</option>
+                <option>Herrenhaarschnitt</option>
+                <option>Haarpflege-Behandlung</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nachricht <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <textarea placeholder="Ihre Wünsche oder Fragen …"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary">Anfrage absenden</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-demo-note">
+        <strong>Demo-Website:</strong> Alle Inhalte sind Platzhalter. Die Website erhalten Sie <strong>kostenlos</strong> –
+        Sie tragen lediglich die monatlichen Hosting- &amp; Administrationskosten.
+        Interesse? <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Friseursalon." target="_blank" rel="noopener">Jetzt auf WhatsApp melden</a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">Salon <em>Lumière</em></a>
+          <p>Ein ruhiger Ort für Haarschnitt, Farbe und Pflege in der Innsbrucker Altstadt. Persönlich beraten, sorgfältig gearbeitet.</p>
+          <div class="social-row">
+            <a href="#" class="social-link" title="Facebook">f</a>
+            <a href="#" class="social-link" title="Instagram">in</a>
+            <a href="#" class="social-link" title="Pinterest">p</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="#leistungen">Haarschnitt</a></li>
+            <li><a href="#leistungen">Coloration</a></li>
+            <li><a href="#leistungen">Balayage</a></li>
+            <li><a href="#leistungen">Braut-Styling</a></li>
+            <li><a href="#leistungen">Herrenhaarschnitt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Salon</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#kontakt">Termin buchen</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Salon Lumière · Alle Rechte vorbehalten</span>
+        <span>Demo erstellt von <a href="https://www.steudler-it.com" target="_blank" rel="noopener">Steudler IT Solutions</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING DEMO BUTTON ── -->
+  <button class="demo-float" onclick="openModal()" aria-label="Demo-Info öffnen">
+    Demo-Website
+  </button>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">✕</button>
+      <span class="demo-badge">Demo-Website</span>
+      <h2 id="modalTitle">Ihre Website – <em style="color:var(--accent);font-style:italic;">kostenlos</em></h2>
+      <p>Diese Seite zeigt, wie Ihre professionelle Online-Präsenz aussehen könnte. Die gute Nachricht: <strong>Die Website bekommen Sie komplett kostenlos.</strong></p>
+      <p>Sie zahlen lediglich eine kleine monatliche Pauschale für Hosting &amp; Verwaltung – keine Einrichtungsgebühr, kein Risiko.</p>
+      <ul class="modal-features">
+        <li>Website-Erstellung &amp; Einrichtung: <strong>0 €</strong></li>
+        <li>Ihr Salon-Name, Logo &amp; Farben</li>
+        <li>Ihre echten Fotos &amp; Bilder</li>
+        <li>Ihre Leistungen, Preise &amp; Öffnungszeiten</li>
+        <li>Karte &amp; Kontaktformular inklusive</li>
+        <li>Monatliche Kosten: nur Hosting &amp; Domain</li>
+      </ul>
+      <div class="modal-buttons">
+        <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Friseursalon." class="btn-primary" target="_blank" rel="noopener" onclick="closeModal()">Auf WhatsApp anfragen</a>
+        <button class="btn-secondary" onclick="closeModal()">Demo weiter ansehen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Navigation ── */
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    /* ── Modal ── */
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* Show modal on first visit */
+    if (!sessionStorage.getItem('demoModalSeen')) {
+      setTimeout(function() {
+        openModal();
+        sessionStorage.setItem('demoModalSeen', '1');
+      }, 1200);
+    }
+
+    /* ── Form (demo) ── */
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Demo – Formular nicht verknüpft';
+      btn.disabled = true;
+      btn.style.background = '#4ade80';
+      btn.style.borderColor = '#4ade80';
+      btn.style.color = '#14532d';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

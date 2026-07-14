@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meridian Immobilien – Ihr Makler in Wien</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0B2545;
+      --navy-deep: #071a33;
+      --champagner: #D4BFA3;
+      --champagner-deep: #B99F79;
+      --white: #FFFFFF;
+      --bg: #F8F6F2;
+      --gray: #6B7280;
+      --text: #16233B;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      background: var(--navy);
+      color: white;
+      padding: 11px 60px 11px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+    .demo-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: var(--champagner);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .demo-banner p {
+      font-size: 13px;
+      opacity: 0.88;
+    }
+    .demo-banner a.banner-cta {
+      color: var(--champagner);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+      border: 1px solid var(--champagner);
+      padding: 5px 14px;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    .demo-banner a.banner-cta:hover { background: var(--champagner); color: var(--navy); }
+    .banner-close {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 6px;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: white; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: rgba(248, 246, 242, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 24px rgba(11,37,69,0.07);
+    }
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      font-family: 'Marcellus', serif;
+      font-size: 23px;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .logo span { color: var(--champagner-deep); }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 34px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--champagner-deep); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--champagner);
+      border: 1px solid var(--navy);
+      padding: 13px 30px;
+      border-radius: 2px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.6px;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover { background: var(--champagner-deep); border-color: var(--champagner-deep); color: var(--navy); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+      padding: 12px 28px;
+      border-radius: 2px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .btn-secondary:hover { background: var(--navy); color: white; }
+    .btn-outline-light {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 12px 28px;
+      border-radius: 2px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .btn-outline-light:hover { border-color: white; background: rgba(255,255,255,0.12); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 23px;
+      height: 2px;
+      background: var(--navy);
+      transition: all 0.3s;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 104px 40px; }
+    .section-inner { max-width: 1240px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 62px; }
+    .section-eyebrow {
+      color: var(--champagner-deep);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 40px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      color: var(--gray);
+      font-size: 16px;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 94vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(180deg, rgba(7,26,51,0.35) 0%, rgba(7,26,51,0.55) 60%, rgba(7,26,51,0.85) 100%), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 120px 40px 0;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      color: var(--champagner);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--champagner); }
+    .hero-content h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 56px;
+      line-height: 1.18;
+      color: white;
+      margin-bottom: 22px;
+      max-width: 720px;
+    }
+    .hero-content h1 em { color: var(--champagner); font-style: italic; }
+    .hero-content > p {
+      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      margin-bottom: 44px;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    /* Search bar */
+    .hero-search {
+      background: rgba(255,255,255,0.97);
+      border-radius: 6px 6px 0 0;
+      padding: 26px 28px;
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr 1fr auto;
+      gap: 16px;
+      align-items: end;
+      box-shadow: 0 -10px 50px rgba(0,0,0,0.18);
+    }
+    .search-field { display: flex; flex-direction: column; gap: 7px; }
+    .search-field label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .search-field select,
+    .search-field input {
+      border: none;
+      border-bottom: 1.5px solid #E2DED4;
+      padding: 8px 2px;
+      font-size: 14.5px;
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: transparent;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .search-field select:focus,
+    .search-field input:focus { border-color: var(--champagner-deep); }
+    .search-submit {
+      background: var(--navy);
+      color: var(--champagner);
+      border: none;
+      padding: 12px 26px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .search-submit:hover { background: var(--champagner-deep); color: var(--navy); }
+    .search-submit svg { width: 15px; height: 15px; }
+
+    /* ── FACTS STRIP ── */
+    .facts {
+      background: var(--navy);
+      padding: 0;
+    }
+    .facts-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .fact {
+      padding: 42px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .fact:last-child { border-right: none; }
+    .fact .num {
+      font-family: 'Marcellus', serif;
+      font-size: 34px;
+      color: var(--champagner);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .fact .lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.8px;
+    }
+
+    /* ── ICONS ── */
+    .icon-line { width: 30px; height: 30px; stroke: var(--navy); stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .service-card {
+      background: var(--bg);
+      border-radius: 4px;
+      padding: 40px 32px;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--champagner);
+      box-shadow: 0 24px 55px rgba(11,37,69,0.08);
+    }
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      background: white;
+      border: 1px solid #E5E1D6;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .service-card h3 {
+      font-family: 'Marcellus', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 11px;
+      font-weight: 400;
+    }
+    .service-card p { color: var(--gray); font-size: 14px; line-height: 1.72; }
+
+    /* ── OBJEKTE (properties grid) ── */
+    .objekte { background: var(--bg); }
+    .objekte-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .property-card {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 10px 34px rgba(11,37,69,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .property-card:hover { transform: translateY(-5px); box-shadow: 0 24px 55px rgba(11,37,69,0.12); }
+    .property-img {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .property-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .property-card:hover .property-img img { transform: scale(1.06); }
+    .property-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--navy);
+      color: var(--champagner);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+    .property-ph-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(11,37,69,0.82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--champagner);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .property-card:hover .property-ph-overlay { opacity: 1; }
+    .property-body { padding: 22px 24px 26px; }
+    .property-price {
+      font-family: 'Marcellus', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .property-loc { color: var(--gray); font-size: 13.5px; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+    .property-loc svg { width: 14px; height: 14px; stroke: var(--champagner-deep); stroke-width: 1.6; fill: none; }
+    .property-meta { display: flex; gap: 18px; padding-top: 16px; border-top: 1px solid #EFEBE1; }
+    .property-meta span { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--navy); font-weight: 500; }
+    .property-meta svg { width: 16px; height: 16px; stroke: var(--champagner-deep); stroke-width: 1.5; fill: none; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-img-main { border-radius: 4px; overflow: hidden; aspect-ratio: 4/5; }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-accent {
+      position: absolute;
+      width: 48%;
+      bottom: -30px;
+      right: -30px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 6px solid white;
+      box-shadow: 0 16px 46px rgba(11,37,69,0.18);
+      aspect-ratio: 1;
+    }
+    .about-img-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-ph-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(11,37,69,0.78);
+      color: var(--champagner);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 2px;
+    }
+    .about-text .section-eyebrow { text-align: left; }
+    .about-text h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 36px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    .about-text p { color: var(--gray); font-size: 15px; line-height: 1.82; margin-bottom: 18px; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 28px 0 36px;
+    }
+    .about-feat {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .check-dot {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--champagner);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--navy); }
+    .testimonials .section-header h2 { color: white; }
+    .testimonials .section-header p { color: rgba(255,255,255,0.55); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 36px 30px;
+    }
+    .stars { color: var(--champagner); font-size: 14px; letter-spacing: 2px; margin-bottom: 18px; }
+    .testimonial-card blockquote {
+      color: rgba(255,255,255,0.78);
+      font-size: 15px;
+      line-height: 1.78;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .t-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(212,191,163,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--champagner);
+      flex-shrink: 0;
+    }
+    .t-avatar svg { width: 18px; height: 18px; stroke: var(--champagner); stroke-width: 1.6; fill: none; }
+    .t-name { font-weight: 600; color: white; font-size: 14px; }
+    .t-meta { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--bg); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info .section-eyebrow { text-align: left; }
+    .contact-info h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 36px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .contact-info > p { color: var(--gray); font-size: 15px; line-height: 1.75; margin-bottom: 38px; }
+    .contact-items { display: flex; flex-direction: column; gap: 22px; margin-bottom: 34px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .ci-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ci-icon svg { width: 19px; height: 19px; stroke: var(--champagner); stroke-width: 1.5; fill: none; }
+    .ci-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--champagner-deep);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .ci-val { font-size: 15px; color: var(--navy); font-weight: 500; line-height: 1.5; }
+    .map-frame { border-radius: 4px; overflow: hidden; border: 1px solid #E5E1D6; height: 220px; }
+    .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(0.15); }
+
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: 4px;
+      padding: 48px 44px;
+      box-shadow: 0 20px 60px rgba(11,37,69,0.07);
+    }
+    .contact-form h3 {
+      font-family: 'Marcellus', serif;
+      font-size: 25px;
+      color: var(--navy);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.6px;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 17px;
+      border: 1.5px solid #E5E1D6;
+      border-radius: 3px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--champagner-deep); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn-primary { width: 100%; text-align: center; padding: 15px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-deep); color: rgba(255,255,255,0.55); padding: 60px 40px 28px; }
+    .footer-inner { max-width: 1240px; margin: 0 auto; }
+    .footer-demo-note {
+      background: rgba(212,191,163,0.08);
+      border: 1px solid rgba(212,191,163,0.28);
+      border-radius: 4px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 44px;
+      line-height: 1.7;
+    }
+    .footer-demo-note strong { color: var(--champagner); }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand .logo { color: white; display: block; margin-bottom: 14px; }
+    .footer-brand .logo span { color: var(--champagner); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 20px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .social-link:hover { background: var(--champagner); color: var(--navy); }
+    .footer-col h4 {
+      color: white;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--champagner); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--champagner); }
+
+    /* ── FLOATING DEMO BUTTON ── */
+    .demo-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      background: var(--navy);
+      color: var(--champagner);
+      border: 1.5px solid var(--champagner);
+      border-radius: 3px;
+      padding: 11px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(11,37,69,0.35);
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .demo-float:hover { background: var(--champagner); color: var(--navy); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7,26,51,0.75);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: white;
+      border-radius: 6px;
+      padding: 52px 50px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.35s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal .demo-badge { display: inline-block; margin-bottom: 24px; background: var(--champagner); color: var(--navy); }
+    .modal h2 {
+      font-family: 'Marcellus', serif;
+      font-size: 29px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .modal > p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+    .modal-features {
+      background: var(--bg);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 22px 0 28px;
+      list-style: none;
+    }
+    .modal-features li {
+      font-size: 14px;
+      color: var(--navy);
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-features li::before { content: '✓'; color: var(--champagner-deep); font-weight: 700; font-size: 15px; }
+    .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #9CA3AF;
+      line-height: 1;
+      padding: 4px 6px;
+    }
+    .modal-close:hover { color: var(--navy); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-content h1 { font-size: 40px; }
+      .hero-search { grid-template-columns: 1fr 1fr; }
+      .search-submit { grid-column: span 2; justify-content: center; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .objekte-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); }
+      .fact:nth-child(2) { border-right: none; }
+      .fact { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      nav { padding: 0 20px; }
+      section { padding: 76px 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--bg);
+        flex-direction: column;
+        padding: 20px 24px;
+        box-shadow: 0 12px 32px rgba(11,37,69,0.1);
+        gap: 16px;
+      }
+      nav { position: relative; }
+      .nav-links.open { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-content h1 { font-size: 30px; }
+      .hero-search { grid-template-columns: 1fr; padding: 22px 20px; }
+      .search-submit { grid-column: span 1; }
+      .services-grid { grid-template-columns: 1fr; }
+      .objekte-grid { grid-template-columns: 1fr; }
+      .facts-inner { grid-template-columns: 1fr; }
+      .fact { border-right: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 36px 26px; }
+      .modal-buttons { flex-direction: column; }
+      section { padding: 64px 20px; }
+      .section-header h2 { font-size: 30px; }
+      .contact-form { padding: 32px 24px; }
+      .demo-banner p { display: none; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── DEMO BANNER ── -->
+  <div class="demo-banner" id="demoBanner">
+    <div class="demo-banner-inner">
+      <span class="demo-badge">Demo-Website</span>
+      <p>Alle Objekte, Texte &amp; Preise sind Platzhalter – werden <strong>kostenlos</strong> durch Ihre echten Inhalte ersetzt.</p>
+      <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20mein%20Immobilienb%C3%BCro." class="banner-cta" target="_blank" rel="noopener">Jetzt auf WhatsApp anfragen →</a>
+    </div>
+    <button class="banner-close" onclick="document.getElementById('demoBanner').style.display='none'" aria-label="Banner schließen">✕</button>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="logo">Meridian <span>Immobilien</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#leistungen" onclick="closeNav()">Leistungen</a></li>
+        <li><a href="#objekte" onclick="closeNav()">Objekte</a></li>
+        <li><a href="#ueber-uns" onclick="closeNav()">Über uns</a></li>
+        <li><a href="#kontakt" onclick="closeNav()">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn-primary" onclick="closeNav()">Beratung anfragen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="start" style="padding:0;">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Immobilienmakler in Wien</div>
+      <h1>Ihr Zuhause verdient <em>Diskretion</em> und Kompetenz</h1>
+      <p>Meridian Immobilien begleitet Sie beim Kauf, Verkauf und der Vermietung erstklassiger Wohnobjekte in Wien – persönlich, diskret und mit Weitblick.</p>
+
+      <form class="hero-search" onsubmit="handleSearch(event)">
+        <div class="search-field">
+          <label>Anliegen</label>
+          <select>
+            <option>Kaufen</option>
+            <option>Mieten</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>Ort / Bezirk</label>
+          <input type="text" placeholder="z. B. 1010 Wien, Innere Stadt" />
+        </div>
+        <div class="search-field">
+          <label>Zimmer</label>
+          <select>
+            <option>Beliebig</option>
+            <option>1–2 Zimmer</option>
+            <option>3–4 Zimmer</option>
+            <option>5+ Zimmer</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label>Budget bis</label>
+          <select>
+            <option>Beliebig</option>
+            <option>500.000 €</option>
+            <option>1.000.000 €</option>
+            <option>2.000.000 €</option>
+            <option>2.000.000 €+</option>
+          </select>
+        </div>
+        <button type="submit" class="search-submit">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Suchen
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts">
+    <div class="facts-inner">
+      <div class="fact">
+        <span class="num">15+</span>
+        <div class="lbl">Jahre am Wiener Markt</div>
+      </div>
+      <div class="fact">
+        <span class="num">480+</span>
+        <div class="lbl">Erfolgreich vermittelte Objekte</div>
+      </div>
+      <div class="fact">
+        <span class="num">€ 620 Mio.</span>
+        <div class="lbl">Transaktionsvolumen</div>
+      </div>
+      <div class="fact">
+        <span class="num">98 %</span>
+        <div class="lbl">Kundenzufriedenheit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="leistungen">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unser Angebot</div>
+        <h2>Leistungen mit Weitblick</h2>
+        <p>Von der ersten Bewertung bis zur Schlüsselübergabe – wir begleiten Sie durch den gesamten Prozess.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Verkauf</h3>
+          <p>Rundum-Betreuung beim Verkauf Ihrer Immobilie – von der Bewertung bis zum notariellen Abschluss.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          </div>
+          <h3>Vermietung</h3>
+          <p>Passgenaue Mietervermittlung inklusive Bonitätsprüfung, Besichtigungen und Vertragsabwicklung.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/><path d="M14 4l6 4.5"/></svg>
+          </div>
+          <h3>Immobilienbewertung</h3>
+          <p>Kostenlose, marktgerechte Wertermittlung Ihrer Immobilie auf Basis aktueller Vergleichsdaten.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><polyline points="3,17 9,11 13,15 21,6"/><polyline points="15,6 21,6 21,12"/></svg>
+          </div>
+          <h3>Anlageberatung</h3>
+          <p>Strategische Beratung für Renditeobjekte und den Aufbau eines langfristigen Immobilienportfolios.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18"/><circle cx="8" cy="14" r="1.4"/><path d="M12 14h6"/></svg>
+          </div>
+          <h3>Vermarktung</h3>
+          <p>Professionelle Exposés, hochwertige Fotografie und gezielte Vermarktung für die richtige Zielgruppe.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg class="icon-line" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><path d="M9 16l2 2 4-4"/></svg>
+          </div>
+          <h3>Übergabemanagement</h3>
+          <p>Reibungslose Übergabe mit Protokoll, Zählerständen und vollständiger Dokumentenübergabe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OBJEKTE ── -->
+  <section class="objekte" id="objekte">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Aktuelles Portfolio</div>
+        <h2>Aktuelle Objekte</h2>
+        <p>Eine Auswahl unserer aktuell vermittelten Immobilien – hier erscheinen später Ihre echten Objekte.</p>
+      </div>
+      <div class="objekte-grid">
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zum Verkauf</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 1.450.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Penthouse, 1010 Wien – Innere Stadt
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>4 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>145 m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zum Verkauf</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 650.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Altbauwohnung, 1080 Wien – Josefstadt
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>3 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>98 m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zum Verkauf</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 1.890.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Einfamilienhaus, 1190 Wien – Döbling
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>6 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>240 m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zur Miete</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 495.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Neubau-Loft, 1020 Wien – Leopoldstadt
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>2 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>72 m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zum Verkauf</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 2.350.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Villa mit Garten, 1130 Wien – Hietzing
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>7 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>320 m²</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-img">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80" alt="Platzhalterbild – wird durch Ihr echtes Objektfoto ersetzt" loading="lazy" />
+            <div class="property-tag">Zur Miete</div>
+            <div class="property-ph-overlay">Platzhalterbild</div>
+          </div>
+          <div class="property-body">
+            <div class="property-price">€ 380.000</div>
+            <div class="property-loc">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Stadtwohnung, 1060 Wien – Mariahilf
+            </div>
+            <div class="property-meta">
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>2 Zimmer</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>58 m²</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="ueber-uns">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80" alt="Platzhalterbild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+            <div class="about-ph-label">Platzhalterbild</div>
+          </div>
+          <div class="about-img-accent">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Platzhalterbild – wird durch Ihr echtes Foto ersetzt" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="section-eyebrow">Über uns</div>
+          <h2>Diskretion und Kompetenz seit 2011</h2>
+          <p>Meridian Immobilien wurde mit dem Anspruch gegründet, den Wiener Immobilienmarkt mit Diskretion, Sorgfalt und einem exzellenten Netzwerk zu begleiten. Seit unserer Gründung haben wir hunderte Käufer, Verkäufer und Eigentümer erfolgreich beraten.</p>
+          <p>Unser Team aus erfahrenen Immobilienexperten steht für persönliche Betreuung, rechtssichere Abwicklung und eine Vermarktung, die dem Wert Ihrer Immobilie gerecht wird.</p>
+          <div class="about-features">
+            <div class="about-feat"><div class="check-dot">✓</div>Kostenlose Bewertung</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Diskrete Vermarktung</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Persönlicher Ansprechpartner</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Rechtssichere Abwicklung</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Internationales Netzwerk</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Transparente Kommunikation</div>
+          </div>
+          <a href="#kontakt" class="btn-primary">Kostenlose Bewertung anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Kundenstimmen</div>
+        <h2>Was unsere Kunden sagen</h2>
+        <p>Vertrauen entsteht durch Verlässlichkeit – das Feedback unserer Kunden bestätigt unseren Weg.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Der Verkauf unserer Wohnung verlief absolut reibungslos. Diskret, professionell und stets erreichbar – genau das haben wir uns gewünscht."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <div>
+              <div class="t-name">Familie R., Wien</div>
+              <div class="t-meta">Verkäufer · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Als Kapitalanleger schätze ich die fundierte Beratung und das exzellente Marktverständnis von Meridian Immobilien sehr. Klare Empfehlung."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <div>
+              <div class="t-name">Herr M. Steiner</div>
+              <div class="t-meta">Anleger · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Wir haben unsere Traumwohnung über Meridian gefunden – ehrliche Beratung ohne Verkaufsdruck. Sehr empfehlenswert für alle, die es genau nehmen."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <div>
+              <div class="t-name">Frau L. Hofer</div>
+              <div class="t-meta">Käuferin · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="kontakt">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <div class="section-eyebrow">Kontakt &amp; Beratung</div>
+          <h2>Persönliches Gespräch vereinbaren</h2>
+          <p>Ob Kauf, Verkauf oder Bewertung – nehmen Sie unverbindlich Kontakt auf. Wir melden uns innerhalb eines Werktages bei Ihnen.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+              <div>
+                <div class="ci-lbl">Büro</div>
+                <div class="ci-val">Schwedenplatz 3<br>1010 Wien</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2-9 0-15-6-15-15z"/></svg></div>
+              <div>
+                <div class="ci-lbl">Telefon</div>
+                <div class="ci-val">+43 1 503 00 00</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6l9 7 9-7"/></svg></div>
+              <div>
+                <div class="ci-lbl">E-Mail</div>
+                <div class="ci-val">info@meridian-immobilien.at</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+              <div>
+                <div class="ci-lbl">Bürozeiten</div>
+                <div class="ci-val">Mo–Fr: 09:00–18:00 Uhr<br>Sa: nach Vereinbarung</div>
+              </div>
+            </div>
+          </div>
+          <div class="map-frame">
+            <iframe
+              title="Meridian Immobilien – Standort Wien Zentrum"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=16.3578%2C16.3578%2C16.3978%2C48.2280&layer=mapnik&marker=48.2115%2C16.3778"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3>Anfrage senden</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vorname</label>
+                <input type="text" placeholder="Anna" />
+              </div>
+              <div class="form-group">
+                <label>Nachname</label>
+                <input type="text" placeholder="Musterfrau" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>E-Mail-Adresse</label>
+              <input type="email" placeholder="ihre@email.at" />
+            </div>
+            <div class="form-group">
+              <label>Telefon <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <input type="tel" placeholder="+43 664 123 456" />
+            </div>
+            <div class="form-group">
+              <label>Ihr Anliegen</label>
+              <select>
+                <option value="">Bitte wählen …</option>
+                <option>Immobilie kaufen</option>
+                <option>Immobilie verkaufen</option>
+                <option>Immobilie mieten</option>
+                <option>Kostenlose Bewertung</option>
+                <option>Anlageberatung</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nachricht <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <textarea placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben …"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary">Anfrage absenden</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-demo-note">
+        <strong>Demo-Website:</strong> Alle Inhalte sind Platzhalter. Die Website erhalten Sie <strong>kostenlos</strong> –
+        Sie tragen lediglich die monatlichen Hosting- &amp; Administrationskosten.
+        Interesse? <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20mein%20Immobilienb%C3%BCro." target="_blank" rel="noopener" style="color:var(--champagner);font-weight:600;">Jetzt auf WhatsApp melden</a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">Meridian <span>Immobilien</span></a>
+          <p>Diskrete Immobilienvermittlung in Wien. Kauf, Verkauf und Vermietung mit persönlicher Betreuung und Weitblick.</p>
+          <div class="social-row">
+            <a href="#" class="social-link" title="Facebook">f</a>
+            <a href="#" class="social-link" title="Instagram">in</a>
+            <a href="#" class="social-link" title="LinkedIn">li</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="#leistungen">Verkauf</a></li>
+            <li><a href="#leistungen">Vermietung</a></li>
+            <li><a href="#leistungen">Bewertung</a></li>
+            <li><a href="#leistungen">Anlageberatung</a></li>
+            <li><a href="#leistungen">Vermarktung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#objekte">Objekte</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#kontakt">Beratung anfragen</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Meridian Immobilien · Alle Rechte vorbehalten</span>
+        <span>Demo erstellt von <a href="https://www.steudler-it.com" target="_blank" rel="noopener">Steudler IT Solutions</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING DEMO BUTTON ── -->
+  <button class="demo-float" onclick="openModal()" aria-label="Demo-Info öffnen">
+    ℹ Demo-Website
+  </button>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">✕</button>
+      <span class="demo-badge">Demo-Website</span>
+      <h2 id="modalTitle">Ihre Website – <em style="color:var(--champagner-deep);font-style:italic;">kostenlos</em></h2>
+      <p>Diese Seite zeigt, wie die Online-Präsenz Ihres Maklerbüros aussehen könnte. Die gute Nachricht: <strong>Die Website bekommen Sie komplett kostenlos.</strong></p>
+      <p>Sie zahlen lediglich eine kleine monatliche Pauschale für Hosting &amp; Verwaltung – keine Einrichtungsgebühr, kein Risiko.</p>
+      <ul class="modal-features">
+        <li>Website-Erstellung &amp; Einrichtung: <strong>0 €</strong></li>
+        <li>Ihr Firmenname, Logo &amp; Farben</li>
+        <li>Ihre echten Objekte &amp; Fotos</li>
+        <li>Ihre Leistungen &amp; Kontaktdaten</li>
+        <li>OpenStreetMap-Karte &amp; Kontaktformular</li>
+        <li>Monatliche Kosten: nur Hosting &amp; Domain</li>
+      </ul>
+      <div class="modal-buttons">
+        <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20mein%20Immobilienb%C3%BCro." class="btn-primary" target="_blank" rel="noopener" onclick="closeModal()">Auf WhatsApp anfragen</a>
+        <button class="btn-secondary" onclick="closeModal()">Demo weiter ansehen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Navigation ── */
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    /* ── Modal ── */
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* Show modal on first visit */
+    if (!sessionStorage.getItem('demoModalSeen')) {
+      setTimeout(function() {
+        openModal();
+        sessionStorage.setItem('demoModalSeen', '1');
+      }, 1200);
+    }
+
+    /* ── Contact form (demo) ── */
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Demo – Formular nicht verknüpft';
+      btn.disabled = true;
+      btn.style.background = '#4ade80';
+      btn.style.color = '#14532d';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Search form (demo) ── */
+    function handleSearch(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.search-submit');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Demo – Suche nicht verknüpft';
+      btn.disabled = true;
+      setTimeout(function() {
+        btn.innerHTML = orig;
+        btn.disabled = false;
+      }, 2600);
+    }
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

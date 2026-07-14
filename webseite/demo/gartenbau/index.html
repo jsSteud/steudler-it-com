@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrünRaum Landschaftsbau – Garten- und Landschaftsbau in Wels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gruen: #2F5233;
+      --gruen-dunkel: #1F3823;
+      --erdbraun: #6B4423;
+      --creme: #F3EFE4;
+      --hellgruen: #8AA17E;
+      --weiss: #FFFFFF;
+      --grau: #6B6459;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Karla', sans-serif;
+      background-color: var(--creme);
+      color: var(--gruen-dunkel);
+      line-height: 1.6;
+    }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      background: linear-gradient(135deg, #1F3823 0%, #2F5233 100%);
+      color: white;
+      padding: 11px 60px 11px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+    .demo-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: var(--hellgruen);
+      color: var(--gruen-dunkel);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .demo-banner p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    .demo-banner a.banner-cta {
+      color: var(--hellgruen);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+      border: 1px solid var(--hellgruen);
+      padding: 5px 14px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    .demo-banner a.banner-cta:hover { background: var(--hellgruen); color: var(--gruen-dunkel); }
+    .banner-close {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 6px;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: white; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: rgba(243, 239, 228, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 24px rgba(47,82,51,0.09);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: var(--gruen-dunkel);
+      text-decoration: none;
+    }
+    .logo span { color: var(--erdbraun); }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--grau);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gruen); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--gruen);
+      color: white;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.4px;
+      transition: all 0.3s;
+      font-family: 'Karla', sans-serif;
+    }
+    .btn-primary:hover { background: var(--gruen-dunkel); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--gruen-dunkel);
+      border: 2px solid var(--gruen-dunkel);
+      padding: 11px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Karla', sans-serif;
+    }
+    .btn-secondary:hover { background: var(--gruen-dunkel); color: white; }
+    .btn-outline-light {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.55);
+      padding: 11px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline-light:hover { border-color: white; background: rgba(255,255,255,0.22); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 23px;
+      height: 2px;
+      background: var(--gruen-dunkel);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-eyebrow {
+      color: var(--erdbraun);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.2;
+      color: var(--gruen-dunkel);
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      color: var(--grau);
+      font-size: 16px;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(21,38,23,0.55) 0%, rgba(21,38,23,0.72) 100%),
+        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=80') center/cover no-repeat;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .season-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(243,239,228,0.94);
+      color: var(--gruen-dunkel);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .hero-eyebrow {
+      color: var(--hellgruen);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 28px; height: 1px; background: var(--hellgruen); }
+    .hero-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 56px;
+      line-height: 1.15;
+      color: white;
+      margin-bottom: 22px;
+    }
+    .hero-text h1 em { color: var(--hellgruen); font-style: italic; }
+    .hero-text p {
+      color: rgba(255,255,255,0.85);
+      font-size: 18px;
+      margin: 0 auto 42px;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+    /* ── FACTS STRIP ── */
+    .facts-strip {
+      background: var(--gruen-dunkel);
+      padding: 0;
+    }
+    .facts-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .fact {
+      text-align: center;
+      padding: 40px 20px;
+      border-right: 1px solid rgba(255,255,255,0.09);
+    }
+    .fact:last-child { border-right: none; }
+    .fact .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px;
+      color: var(--hellgruen);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .fact .lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.68);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--creme); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 38px 32px;
+      border: 1.5px solid transparent;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--hellgruen);
+      box-shadow: 0 20px 55px rgba(47,82,51,0.13);
+    }
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, var(--gruen), var(--hellgruen));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+    }
+    .service-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+    .service-card p { color: var(--grau); font-size: 14px; line-height: 1.72; margin-bottom: 18px; }
+    .service-price { font-size: 18px; font-weight: 700; color: var(--erdbraun); font-family: 'DM Serif Display', serif; }
+    .service-price span { font-size: 13px; font-weight: 400; font-family: 'Karla', sans-serif; color: var(--grau); }
+
+    /* ── VORHER/NACHHER GALLERY ── */
+    .gallery { background: white; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--creme);
+      border: 1px solid rgba(47,82,51,0.1);
+    }
+    .gallery-item-title {
+      padding: 14px 18px 4px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: var(--gruen-dunkel);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(47,82,51,0.12);
+      margin-top: 12px;
+    }
+    .split-half {
+      position: relative;
+      height: 170px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gph::after {
+      content: 'Ihr Bild';
+      position: absolute;
+      inset: 0;
+      background: rgba(47,82,51,0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .split-half:hover .gph::after { opacity: 1; }
+    .gph-icon { font-size: 24px; opacity: 0.3; }
+    .gph-sub {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.35;
+      color: var(--gruen-dunkel);
+      font-weight: 700;
+    }
+    .split-half.vorher .gph { background: #E4DDCB; }
+    .split-half.nachher .gph { background: #DCE7D6; }
+    .half-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(31,56,35,0.82);
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+    .split-half.nachher .half-tag { background: rgba(138,161,126,0.92); color: var(--gruen-dunkel); }
+
+    /* ── ABOUT ── */
+    .about { background: var(--creme); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-img-main { border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-accent {
+      position: absolute;
+      width: 46%;
+      bottom: -28px;
+      right: -28px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 5px solid var(--creme);
+      box-shadow: 0 14px 45px rgba(31,56,35,0.2);
+      aspect-ratio: 1;
+    }
+    .about-img-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text .section-eyebrow { text-align: left; }
+    .about-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .about-text p { color: var(--grau); font-size: 15px; line-height: 1.82; margin-bottom: 18px; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0 36px;
+    }
+    .about-feat {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .check-dot {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--gruen);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--gruen-dunkel); }
+    .testimonials .section-header h2 { color: white; }
+    .testimonials .section-header p { color: rgba(255,255,255,0.6); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 34px 28px;
+    }
+    .stars { color: var(--hellgruen); font-size: 14px; letter-spacing: 2px; margin-bottom: 18px; }
+    .testimonial-card blockquote {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      line-height: 1.78;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .t-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .t-name { font-weight: 700; color: white; font-size: 14px; }
+    .t-meta { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--creme); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info .section-eyebrow { text-align: left; }
+    .contact-info h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .contact-info > p { color: var(--grau); font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
+    .contact-items { display: flex; flex-direction: column; gap: 22px; margin-bottom: 32px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .ci-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gruen);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      color: white;
+    }
+    .ci-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--erdbraun);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .ci-val { font-size: 15px; color: var(--gruen-dunkel); font-weight: 500; line-height: 1.5; }
+    .map-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(47,82,51,0.15);
+      box-shadow: 0 10px 30px rgba(31,56,35,0.1);
+    }
+    .map-frame iframe { width: 100%; height: 220px; border: 0; display: block; }
+
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 44px;
+      box-shadow: 0 20px 60px rgba(31,56,35,0.08);
+    }
+    .contact-form h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gruen-dunkel);
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 17px;
+      border: 1.5px solid #DDD5C4;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Karla', sans-serif;
+      color: var(--gruen-dunkel);
+      background: var(--creme);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gruen); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn-primary { width: 100%; text-align: center; padding: 15px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--gruen-dunkel); color: rgba(255,255,255,0.6); padding: 60px 40px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-demo-note {
+      background: rgba(138,161,126,0.12);
+      border: 1px solid rgba(138,161,126,0.32);
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 44px;
+      line-height: 1.7;
+    }
+    .footer-demo-note strong { color: var(--hellgruen); }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo { color: white; display: block; margin-bottom: 14px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 20px; }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+    .social-link:hover { background: var(--hellgruen); color: var(--gruen-dunkel); }
+    .footer-col h4 {
+      color: white;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--hellgruen); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--hellgruen); }
+
+    /* ── FLOATING DEMO BUTTON ── */
+    .demo-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      background: var(--gruen-dunkel);
+      color: var(--hellgruen);
+      border: 2px solid var(--hellgruen);
+      border-radius: 12px;
+      padding: 11px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: all 0.3s;
+      font-family: 'Karla', sans-serif;
+    }
+    .demo-float:hover { background: var(--hellgruen); color: var(--gruen-dunkel); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,26,17,0.76);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: white;
+      border-radius: 22px;
+      padding: 52px 50px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.35s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal .demo-badge { display: inline-block; margin-bottom: 24px; background: var(--hellgruen); color: var(--gruen-dunkel); }
+    .modal h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 30px;
+      color: var(--gruen-dunkel);
+      margin-bottom: 14px;
+    }
+    .modal > p {
+      color: var(--grau);
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+    .modal-features {
+      background: var(--creme);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 22px 0 28px;
+      list-style: none;
+    }
+    .modal-features li {
+      font-size: 14px;
+      color: var(--gruen-dunkel);
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-features li::before { content: '✓'; color: var(--gruen); font-weight: 700; font-size: 15px; }
+    .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #9CA3AF;
+      line-height: 1;
+      padding: 4px 6px;
+    }
+    .modal-close:hover { color: var(--gruen-dunkel); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-text h1 { font-size: 40px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); }
+      .fact:nth-child(2) { border-right: none; }
+      .fact { border-bottom: 1px solid rgba(255,255,255,0.09); }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      nav { padding: 0 20px; }
+      section { padding: 72px 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0; right: 0;
+        background: var(--creme);
+        flex-direction: column;
+        padding: 20px 24px;
+        box-shadow: 0 12px 32px rgba(31,56,35,0.14);
+        gap: 16px;
+      }
+      nav { position: relative; }
+      .nav-links.open { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 32px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .facts-inner { grid-template-columns: 1fr; }
+      .fact { border-right: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 36px 26px; }
+      .modal-buttons { flex-direction: column; }
+      .hero-buttons { flex-direction: column; }
+      section { padding: 60px 20px; }
+      .section-header h2 { font-size: 32px; }
+      .contact-form { padding: 32px 24px; }
+      .demo-banner p { display: none; }
+      .split-half { height: 130px; }
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── DEMO BANNER ── -->
+  <div class="demo-banner" id="demoBanner">
+    <div class="demo-banner-inner">
+      <span class="demo-badge">Demo-Website</span>
+      <p>Alle Texte, Bilder &amp; Preise sind Platzhalter – werden <strong>kostenlos</strong> durch Ihre echten Inhalte ersetzt.</p>
+      <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Garten-%20und%20Landschaftsbaubetrieb." class="banner-cta" target="_blank" rel="noopener">💬 Jetzt auf WhatsApp anfragen →</a>
+    </div>
+    <button class="banner-close" onclick="document.getElementById('demoBanner').style.display='none'" aria-label="Banner schließen">✕</button>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="logo">Grün<span>Raum</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#leistungen" onclick="closeNav()">Leistungen</a></li>
+        <li><a href="#projekte" onclick="closeNav()">Projekte</a></li>
+        <li><a href="#ueber-uns" onclick="closeNav()">Über uns</a></li>
+        <li><a href="#kontakt" onclick="closeNav()">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn-primary" onclick="closeNav()">Beratung anfragen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="start">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="season-chip">🌷 Jetzt Frühjahrsputz für Ihren Garten buchen</div>
+        <div class="hero-eyebrow">Garten- &amp; Landschaftsbau in Wels</div>
+        <h1>Ihr Garten, <em>lebendig</em> gestaltet</h1>
+        <p>Von der ersten Planungsskizze bis zur letzten Pflanze setzen wir mit Herz und Handwerk Gärten um, die zu Ihnen und Ihrer Region passen.</p>
+        <div class="hero-buttons">
+          <a href="#kontakt" class="btn-primary">Kostenlose Beratung</a>
+          <a href="#leistungen" class="btn-outline-light">Unsere Leistungen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts-strip">
+    <div class="facts-inner">
+      <div class="fact">
+        <span class="num">seit 1998</span>
+        <div class="lbl">In Wels verwurzelt</div>
+      </div>
+      <div class="fact">
+        <span class="num">430+</span>
+        <div class="lbl">Gestaltete Gärten</div>
+      </div>
+      <div class="fact">
+        <span class="num">97 %</span>
+        <div class="lbl">Zufriedene Kunden</div>
+      </div>
+      <div class="fact">
+        <span class="num">12</span>
+        <div class="lbl">Fachkräfte im Team</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="leistungen">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unser Angebot</div>
+        <h2>Unsere Leistungen</h2>
+        <p>Von der ersten Idee bis zur laufenden Pflege – wir begleiten Ihren Garten durch alle Jahreszeiten.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🌿</div>
+          <h3>Gartenplanung &amp; -gestaltung</h3>
+          <p>Individuelle Gartenkonzepte mit 3D-Planung – abgestimmt auf Boden, Licht und Ihre Wünsche.</p>
+          <div class="service-price">ab 450 € <span>· inkl. Erstberatung</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🌱</div>
+          <h3>Rasenpflege &amp; Rasenneuanlage</h3>
+          <p>Vertikutieren, Düngen, Mähen oder komplette Neuanlage – für einen dichten, gesunden Rasen.</p>
+          <div class="service-price">ab 8 € <span>· pro m² Neuanlage</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🌳</div>
+          <h3>Baumschnitt &amp; Baumpflege</h3>
+          <p>Fachgerechter Form-, Erziehungs- und Pflegeschnitt sowie Baumkontrolle durch geschulte Fachkräfte.</p>
+          <div class="service-price">ab 90 € <span>· pro Baum</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🪨</div>
+          <h3>Terrassen- &amp; Wegebau</h3>
+          <p>Naturstein, Holz oder Betonwerkstein – wir planen und verlegen Terrassen und Wege, die halten.</p>
+          <div class="service-price">ab 95 € <span>· pro m²</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">💧</div>
+          <h3>Bewässerungssysteme</h3>
+          <p>Automatische Tropf- und Sprinklerbewässerung, die Wasser spart und Ihre Pflanzen zuverlässig versorgt.</p>
+          <div class="service-price">ab 12 € <span>· pro m² Fläche</span></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">❄️</div>
+          <h3>Winterdienst</h3>
+          <p>Zuverlässiger Schneeräum- und Streudienst für Wege, Zufahrten und Firmengelände im Raum Wels.</p>
+          <div class="service-price">ab 35 € <span>· pro Einsatz</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VORHER/NACHHER GALLERY ── -->
+  <section class="gallery" id="projekte">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unsere Projekte</div>
+        <h2>Vorher &amp; Nachher</h2>
+        <p>Hier können Ihre echten Projektfotos eingesetzt werden – Verwandlungen, die für sich sprechen.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Vorgarten Neugestaltung</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Terrasse in Naturstein</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Rasenneuanlage &amp; Beete</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Sitzplatz mit Pergola</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Wegebau &amp; Einfassung</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-item-title">Bepflanzung &amp; Sichtschutz</div>
+          <div class="split">
+            <div class="split-half vorher"><span class="half-tag">Vorher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+            <div class="split-half nachher"><span class="half-tag">Nachher</span><div class="gph"><div class="gph-icon">📷</div><div class="gph-sub">Platzhalter</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="ueber-uns">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-img-main">
+            <img
+              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80"
+              alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-img-accent">
+            <img
+              src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=800&q=80"
+              alt="Dummy-Bild – wird durch Ihr echtes Foto ersetzt"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="section-eyebrow">Über uns</div>
+          <h2>Verwurzelt in Wels seit 1998</h2>
+          <p>GrünRaum Landschaftsbau wurde mit einer klaren Überzeugung gegründet: Ein guter Garten braucht Zeit, regionales Wissen und ehrliches Handwerk. Seit fast drei Jahrzehnten gestalten wir Gärten im Raum Wels und Umgebung.</p>
+          <p>Unser Team aus geprüften Landschaftsgärtnerinnen und -gärtnern denkt in Jahreszeiten statt in Trends – mit einem klaren Blick für Nachhaltigkeit, Bodenqualität und Pflanzen, die wirklich zu unserem Klima passen.</p>
+          <div class="about-features">
+            <div class="about-feat"><div class="check-dot">✓</div>Regionale Pflanzen</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Nachhaltige Bewässerung</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Kostenloser Vor-Ort-Termin</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Meisterbetrieb</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Materialgarantie</div>
+            <div class="about-feat"><div class="check-dot">✓</div>Faire Kostenvoranschläge</div>
+          </div>
+          <a href="#kontakt" class="btn-primary">Jetzt Beratung anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Kundenstimmen</div>
+        <h2>Was unsere Kunden sagen</h2>
+        <p>Ein gepflegter Garten ist unsere beste Referenz – hier sprechen unsere Kunden für sich.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Von der Planung bis zur Umsetzung alles aus einer Hand – unser Vorgarten ist jetzt der schönste in der Straße. Sehr empfehlenswert!"</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">👤</div>
+            <div>
+              <div class="t-name">Musterkunde A.</div>
+              <div class="t-meta">Wels · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Die Terrasse wurde termingerecht und sauber verlegt. Beratung war ehrlich und ohne Verkaufsdruck – genau das, was wir gesucht haben."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">👤</div>
+            <div>
+              <div class="t-name">Musterkundin B.</div>
+              <div class="t-meta">Thalheim bei Wels · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Endlich ein Betrieb, der auch an die Bewässerung im Sommer mitdenkt. Unser Rasen war noch nie so dicht und grün."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">👤</div>
+            <div>
+              <div class="t-name">Musterkunde C.</div>
+              <div class="t-meta">Neukunde · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="kontakt">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <div class="section-eyebrow">Kontakt &amp; Beratung</div>
+          <h2>Beratungstermin vereinbaren</h2>
+          <p>Schreiben Sie uns oder rufen Sie an – wir besuchen Sie gerne kostenlos vor Ort und beraten Sie zu Ihrem Gartenprojekt.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">📍</div>
+              <div>
+                <div class="ci-lbl">Adresse</div>
+                <div class="ci-val">Dragonerstraße 7<br>4600 Wels</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">📞</div>
+              <div>
+                <div class="ci-lbl">Telefon</div>
+                <div class="ci-val">+43 7242 555 123</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">📧</div>
+              <div>
+                <div class="ci-lbl">E-Mail</div>
+                <div class="ci-val">info@gruenraum-wels.at</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">🕐</div>
+              <div>
+                <div class="ci-lbl">Öffnungszeiten</div>
+                <div class="ci-val">Mo–Fr: 07:00–17:00 Uhr<br>Sa: nach Vereinbarung</div>
+              </div>
+            </div>
+          </div>
+          <div class="map-frame">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=14.0089%2C48.1475%2C14.0489%2C48.1675&layer=mapnik&marker=48.1575%2C14.0289"
+              loading="lazy"
+              title="Standort GrünRaum Landschaftsbau in Wels-Zentrum"
+            ></iframe>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3>Beratung anfragen</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vorname</label>
+                <input type="text" placeholder="Anna" />
+              </div>
+              <div class="form-group">
+                <label>Nachname</label>
+                <input type="text" placeholder="Mustermann" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>E-Mail-Adresse</label>
+              <input type="email" placeholder="ihre@email.at" />
+            </div>
+            <div class="form-group">
+              <label>Telefon <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <input type="tel" placeholder="+43 664 123 4567" />
+            </div>
+            <div class="form-group">
+              <label>Gewünschte Leistung</label>
+              <select>
+                <option value="">Bitte wählen …</option>
+                <option>Gartenplanung &amp; -gestaltung</option>
+                <option>Rasenpflege &amp; Rasenneuanlage</option>
+                <option>Baumschnitt &amp; Baumpflege</option>
+                <option>Terrassen- &amp; Wegebau</option>
+                <option>Bewässerungssysteme</option>
+                <option>Winterdienst</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nachricht <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <textarea placeholder="Erzählen Sie uns von Ihrem Garten …"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary">Anfrage absenden</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-demo-note">
+        <strong>Demo-Website:</strong> Alle Inhalte sind Platzhalter. Die Website erhalten Sie <strong>kostenlos</strong> –
+        Sie tragen lediglich die monatlichen Hosting- &amp; Administrationskosten.
+        Interesse? <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Garten-%20und%20Landschaftsbaubetrieb." target="_blank" rel="noopener" style="color:var(--hellgruen);font-weight:600;">💬 Jetzt auf WhatsApp melden</a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">Grün<span>Raum</span></a>
+          <p>Garten- und Landschaftsbau aus Wels. Nachhaltig geplant, sorgfältig umgesetzt und über alle Jahreszeiten gepflegt.</p>
+          <div class="social-row">
+            <a href="#" class="social-link" title="Facebook">f</a>
+            <a href="#" class="social-link" title="Instagram">in</a>
+            <a href="#" class="social-link" title="Pinterest">p</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="#leistungen">Gartenplanung</a></li>
+            <li><a href="#leistungen">Rasenpflege</a></li>
+            <li><a href="#leistungen">Baumschnitt</a></li>
+            <li><a href="#leistungen">Terrassenbau</a></li>
+            <li><a href="#leistungen">Winterdienst</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Betrieb</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#projekte">Projekte</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#kontakt">Beratung anfragen</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 GrünRaum Landschaftsbau · Alle Rechte vorbehalten</span>
+        <span>Demo erstellt von <a href="https://www.steudler-it.com" target="_blank" rel="noopener">Steudler IT Solutions</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING DEMO BUTTON ── -->
+  <button class="demo-float" onclick="openModal()" aria-label="Demo-Info öffnen">
+    ℹ Demo-Website
+  </button>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">✕</button>
+      <span class="demo-badge">Demo-Website</span>
+      <h2 id="modalTitle">Ihre Website – <em style="color:var(--gruen);font-style:italic;">kostenlos</em></h2>
+      <p>Diese Seite zeigt beispielhaft, wie die Online-Präsenz Ihres Garten- und Landschaftsbaubetriebs aussehen könnte. Die gute Nachricht: <strong>Die Website bekommen Sie komplett kostenlos.</strong></p>
+      <p>Sie zahlen lediglich eine kleine monatliche Pauschale für Hosting &amp; Verwaltung – keine Einrichtungsgebühr, kein Risiko.</p>
+      <ul class="modal-features">
+        <li>Website-Erstellung &amp; Einrichtung: <strong>0 €</strong></li>
+        <li>Ihr Betriebsname, Logo &amp; Farben</li>
+        <li>Ihre echten Projektfotos &amp; Vorher/Nachher-Bilder</li>
+        <li>Ihre Leistungen, Preise &amp; Öffnungszeiten</li>
+        <li>Karte &amp; Kontaktformular</li>
+        <li>Monatliche Kosten: nur Hosting &amp; Domain</li>
+      </ul>
+      <div class="modal-buttons">
+        <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meinen%20Garten-%20und%20Landschaftsbaubetrieb." class="btn-primary" target="_blank" rel="noopener" onclick="closeModal()">💬 Auf WhatsApp anfragen</a>
+        <button class="btn-secondary" onclick="closeModal()">Demo weiter ansehen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Navigation ── */
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    /* ── Modal ── */
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* Show modal on first visit */
+    if (!sessionStorage.getItem('demoModalSeen')) {
+      setTimeout(function() {
+        openModal();
+        sessionStorage.setItem('demoModalSeen', '1');
+      }, 1200);
+    }
+
+    /* ── Form (demo) ── */
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Demo – Formular nicht verknüpft';
+      btn.disabled = true;
+      btn.style.background = '#4ade80';
+      btn.style.color = '#14532d';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

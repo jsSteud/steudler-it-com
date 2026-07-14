@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zahnarztpraxis Dr. Lindner – Ihre Zahnärztin in Salzburg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mint: #0E7C7B;
+      --mint-dark: #0A5F5E;
+      --navy: #1B4B66;
+      --bg: #F7FAFA;
+      --dark: #16232B;
+      --accent-soft: #CFEEE9;
+      --gray: #5B6B70;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* ── DEMO BANNER ── */
+    .demo-banner {
+      background: linear-gradient(120deg, #16232B 0%, #1B4B66 100%);
+      color: white;
+      padding: 11px 60px 11px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+    .demo-banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: var(--mint);
+      color: white;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .demo-banner p {
+      font-size: 13px;
+      opacity: 0.88;
+    }
+    .demo-banner a.banner-cta {
+      color: var(--accent-soft);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+      white-space: nowrap;
+      border: 1px solid var(--accent-soft);
+      padding: 5px 14px;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    .demo-banner a.banner-cta:hover { background: var(--accent-soft); color: var(--dark); }
+    .banner-close {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 6px;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: white; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: rgba(247, 250, 250, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 24px rgba(14,124,123,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--mint), var(--navy));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 19px; height: 19px; stroke: white; }
+    .logo span { color: var(--mint); font-weight: 400; }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--mint); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--mint);
+      color: white;
+      border: none;
+      padding: 13px 30px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover { background: var(--mint-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 11px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-secondary:hover { background: var(--navy); color: white; }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid rgba(27,75,102,0.35);
+      padding: 11px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--navy); background: rgba(27,75,102,0.06); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 23px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-eyebrow {
+      color: var(--mint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-header h2 {
+      font-size: 38px;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .section-header p {
+      color: var(--gray);
+      font-size: 16px;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, #F0F8F7 0%, var(--bg) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 90px 40px 130px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      color: var(--mint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--mint); }
+    .hero-text h1 {
+      font-size: 48px;
+      line-height: 1.16;
+      color: var(--navy);
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+    .hero-text h1 em { color: var(--mint); font-style: normal; }
+    .hero-text p {
+      color: var(--gray);
+      font-size: 17px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+      max-width: 480px;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Hero image + mini form */
+    .hero-visual { position: relative; }
+    .hero-img-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid rgba(14,124,123,0.18);
+      background: var(--accent-soft);
+      position: relative;
+      box-shadow: 0 30px 70px rgba(27,75,102,0.16);
+    }
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-img-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(22,35,43,0.72);
+      backdrop-filter: blur(6px);
+      color: var(--accent-soft);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(207,238,233,0.35);
+    }
+
+    .hero-mini-form {
+      position: absolute;
+      bottom: -46px;
+      left: -34px;
+      background: white;
+      border-radius: 18px;
+      padding: 22px 24px;
+      width: 268px;
+      box-shadow: 0 20px 50px rgba(27,75,102,0.22);
+      border: 1px solid rgba(14,124,123,0.1);
+    }
+    .hero-mini-form h4 {
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .hero-mini-form .mini-sub {
+      font-size: 12px;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+    .hero-mini-form .form-group { margin-bottom: 10px; }
+    .hero-mini-form label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .hero-mini-form input {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid #E1EAE9;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .hero-mini-form input:focus { border-color: var(--mint); }
+    .hero-mini-form button {
+      width: 100%;
+      margin-top: 4px;
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    /* ── FACTS STRIP ── */
+    .facts {
+      background: var(--navy);
+      padding: 0;
+    }
+    .facts-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 40px 56px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .fact-item { text-align: center; }
+    .fact-item .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fact-item .num span { color: var(--accent-soft); }
+    .fact-item .lbl {
+      font-size: 12px;
+      color: rgba(255,255,255,0.62);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: white; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .service-card {
+      background: var(--bg);
+      border-radius: 18px;
+      padding: 36px 30px;
+      border: 1.5px solid transparent;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-soft);
+      box-shadow: 0 20px 55px rgba(14,124,123,0.12);
+    }
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, var(--mint), var(--navy));
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 26px; height: 26px; stroke: white; fill: none; }
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .service-card p { color: var(--gray); font-size: 14px; line-height: 1.72; }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(14,124,123,0.86);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .g-overlay { opacity: 1; }
+    .g-overlay .g-title {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .g-overlay .g-sub {
+      font-size: 11px;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: white; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-img-main { border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-accent {
+      position: absolute;
+      width: 46%;
+      bottom: -28px;
+      right: -28px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 14px 45px rgba(27,75,102,0.18);
+      aspect-ratio: 1;
+    }
+    .about-img-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-text .section-eyebrow { text-align: left; }
+    .about-text h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .about-text p { color: var(--gray); font-size: 15px; line-height: 1.82; margin-bottom: 18px; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0 36px;
+    }
+    .about-feat {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    .check-dot {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--mint);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .check-dot svg { width: 11px; height: 11px; stroke: white; fill: none; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--dark); }
+    .testimonials .section-header h2 { color: white; }
+    .testimonials .section-header p { color: rgba(255,255,255,0.55); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 34px 28px;
+    }
+    .stars { color: var(--accent-soft); font-size: 14px; letter-spacing: 2px; margin-bottom: 18px; }
+    .testimonial-card blockquote {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      line-height: 1.78;
+      font-style: normal;
+      margin-bottom: 24px;
+    }
+    .t-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(14,124,123,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-soft);
+      font-weight: 600;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .t-name { font-weight: 600; color: white; font-size: 14px; }
+    .t-meta { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--bg); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info .section-eyebrow { text-align: left; }
+    .contact-info h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .contact-info > p { color: var(--gray); font-size: 15px; line-height: 1.75; margin-bottom: 34px; }
+    .contact-items { display: flex; flex-direction: column; gap: 22px; margin-bottom: 30px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .ci-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--mint);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ci-icon svg { width: 19px; height: 19px; stroke: white; fill: none; }
+    .ci-lbl {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--mint);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .ci-val { font-size: 15px; color: var(--dark); font-weight: 500; line-height: 1.5; }
+
+    .contact-map {
+      border-radius: 18px;
+      overflow: hidden;
+      height: 220px;
+      border: 1px solid rgba(14,124,123,0.15);
+      box-shadow: 0 12px 34px rgba(27,75,102,0.1);
+    }
+    .contact-map iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(15%) contrast(1.02); }
+
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: 22px;
+      padding: 46px 44px;
+      box-shadow: 0 20px 60px rgba(27,75,102,0.08);
+    }
+    .contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 28px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 17px;
+      border: 1.5px solid #E1EAE9;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--mint); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn-primary { width: 100%; text-align: center; padding: 15px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,0.55); padding: 60px 40px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-demo-note {
+      background: rgba(14,124,123,0.12);
+      border: 1px solid rgba(14,124,123,0.3);
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 44px;
+      line-height: 1.7;
+    }
+    .footer-demo-note strong { color: var(--accent-soft); }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-brand .logo { color: white; margin-bottom: 14px; }
+    .footer-brand .logo span { color: var(--accent-soft); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; }
+    .footer-col h4 {
+      color: white;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--accent-soft); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent-soft); }
+
+    /* ── FLOATING DEMO BUTTON ── */
+    .demo-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      background: var(--dark);
+      color: var(--accent-soft);
+      border: 2px solid var(--mint);
+      border-radius: 12px;
+      padding: 11px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .demo-float svg { width: 14px; height: 14px; stroke: var(--accent-soft); fill: none; }
+    .demo-float:hover { background: var(--mint); color: white; }
+    .demo-float:hover svg { stroke: white; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(16,35,43,0.75);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: white;
+      border-radius: 22px;
+      padding: 52px 50px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.35s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal .demo-badge { display: inline-block; margin-bottom: 24px; }
+    .modal h2 {
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .modal h2 em { color: var(--mint); font-style: normal; }
+    .modal > p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 12px;
+    }
+    .modal-features {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 22px 0 28px;
+      list-style: none;
+    }
+    .modal-features li {
+      font-size: 14px;
+      color: var(--dark);
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-features li::before { content: '✓'; color: var(--mint); font-weight: 700; font-size: 15px; }
+    .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #9CA3AF;
+      line-height: 1;
+      padding: 4px 6px;
+    }
+    .modal-close:hover { color: var(--navy); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; padding-bottom: 90px; }
+      .hero-visual { display: none; }
+      .hero-text h1 { font-size: 38px; }
+      .hero-text p { max-width: none; }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+      nav { padding: 0 20px; }
+      section { padding: 72px 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0; right: 0;
+        background: var(--bg);
+        flex-direction: column;
+        padding: 20px 24px;
+        box-shadow: 0 12px 32px rgba(27,75,102,0.12);
+        gap: 16px;
+      }
+      nav { position: relative; }
+      .nav-links.open { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 30px; }
+      .facts-inner { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 36px 26px; }
+      .modal-buttons { flex-direction: column; }
+      .hero-buttons { flex-direction: column; }
+      section { padding: 60px 20px; }
+      .section-header h2 { font-size: 28px; }
+      .contact-form { padding: 32px 24px; }
+      .demo-banner p { display: none; }
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ── DEMO BANNER ── -->
+  <div class="demo-banner" id="demoBanner">
+    <div class="demo-banner-inner">
+      <span class="demo-badge">Demo-Website</span>
+      <p>Alle Texte, Bilder &amp; Angaben sind Platzhalter – werden <strong>kostenlos</strong> durch die echten Praxisinhalte ersetzt.</p>
+      <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meine%20Zahnarztpraxis." class="banner-cta" target="_blank" rel="noopener">💬 Jetzt auf WhatsApp anfragen →</a>
+    </div>
+    <button class="banner-close" onclick="document.getElementById('demoBanner').style.display='none'" aria-label="Banner schließen">✕</button>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-1.1 0-1.7-1.4-2.1-2.7-.4-1.3-.7-2.6-1.4-2.6s-1 1.3-1.4 2.6C6.7 19.6 6.1 21 5 21c-1.7 0-2.5-2.2-2.5-5.4C2.5 9.9 4.2 5 8 5c1.4 0 2.2.6 3 .6s1.6-.6 3-.6c3.8 0 5.5 4.9 5.5 10.6 0 3.2-.8 5.4-2.5 5.4-1.1 0-1.7-1.4-2.1-2.7-.4-1.3-.7-2.6-1.4-2.6s-1 1.3-1.4 2.6C13.7 19.6 13.1 21 12 21Z"/></svg>
+        </span>
+        Dr. Lindner <span>Zahnarztpraxis</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#leistungen" onclick="closeNav()">Leistungen</a></li>
+        <li><a href="#praxis" onclick="closeNav()">Praxis</a></li>
+        <li><a href="#ueber-uns" onclick="closeNav()">Über uns</a></li>
+        <li><a href="#kontakt" onclick="closeNav()">Kontakt</a></li>
+        <li><a href="#kontakt" class="btn-primary" onclick="closeNav()">Termin anfragen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="start">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Zahnarztpraxis in Salzburg</div>
+        <h1>Zahngesundheit mit <em>Ruhe</em> und Sorgfalt</h1>
+        <p>Moderne, einfühlsame Zahnmedizin im Herzen von Salzburg – von der Vorsorge bis zur ästhetischen Behandlung, für die ganze Familie.</p>
+        <div class="hero-buttons">
+          <a href="#kontakt" class="btn-primary">Termin anfragen</a>
+          <a href="#leistungen" class="btn-outline">Unsere Leistungen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-frame">
+          <img
+            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&h=1000&fit=crop&auto=format&q=80"
+            alt="Dummy-Bild – wird durch ein echtes Praxisfoto ersetzt"
+            loading="lazy"
+          />
+          <div class="hero-img-label">Platzhalterbild</div>
+        </div>
+        <div class="hero-mini-form">
+          <h4>Termin anfragen</h4>
+          <p class="mini-sub">Unverbindlich &amp; in 30 Sekunden</p>
+          <form onsubmit="handleMiniForm(event)">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Ihr Name" required />
+            </div>
+            <div class="form-group">
+              <label>Wunschtermin</label>
+              <input type="date" required />
+            </div>
+            <button type="submit" class="btn-primary">Anfragen</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <section class="facts">
+    <div class="facts-inner">
+      <div class="fact-item reveal">
+        <span class="num">seit <span>1998</span></span>
+        <div class="lbl">In Salzburg für Sie da</div>
+      </div>
+      <div class="fact-item reveal">
+        <span class="num"><span>12.000+</span></span>
+        <div class="lbl">Zufriedene Patient:innen</div>
+      </div>
+      <div class="fact-item reveal">
+        <span class="num"><span>3.500</span></span>
+        <div class="lbl">Behandlungen pro Jahr</div>
+      </div>
+      <div class="fact-item reveal">
+        <span class="num"><span>4,9 ★</span></span>
+        <div class="lbl">Durchschnittliche Bewertung</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="leistungen">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Unser Angebot</div>
+        <h2>Unsere Leistungen</h2>
+        <p>Von der regelmäßigen Vorsorge bis zur individuellen Spezialbehandlung – ganzheitliche Zahnmedizin auf einem Termin.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-1.1 0-1.7-1.4-2.1-2.7-.4-1.3-.7-2.6-1.4-2.6s-1 1.3-1.4 2.6C6.7 19.6 6.1 21 5 21c-1.7 0-2.5-2.2-2.5-5.4C2.5 9.9 4.2 5 8 5c1.4 0 2.2.6 3 .6s1.6-.6 3-.6c3.8 0 5.5 4.9 5.5 10.6 0 3.2-.8 5.4-2.5 5.4-1.1 0-1.7-1.4-2.1-2.7-.4-1.3-.7-2.6-1.4-2.6s-1 1.3-1.4 2.6C13.7 19.6 13.1 21 12 21Z"/></svg>
+          </div>
+          <h3>Prophylaxe &amp; Zahnreinigung</h3>
+          <p>Professionelle Vorsorge und gründliche Reinigung, damit Karies und Parodontitis gar nicht erst entstehen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4c1.5 1 3 1 4 0M6 8c-1 3 0 6 1.5 9.5C8.5 20 9.7 21 11 21h2c1.3 0 2.5-1 3.5-3.5C17.9 14 18.9 11 18 8"/><path d="M5 4l1 3M19 4l-1 3M12 4l-.5 3"/></svg>
+          </div>
+          <h3>Zahnästhetik &amp; Bleaching</h3>
+          <p>Ein strahlendes Lächeln durch schonende Aufhellung, Veneers und ästhetische Zahnkorrekturen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 8l4 4-1.5 8h-5L8 12l4-4Z"/><path d="M9.5 20h5"/></svg>
+          </div>
+          <h3>Implantologie</h3>
+          <p>Fester Zahnersatz mit modernster Implantattechnik – für einen stabilen Biss und ein natürliches Aussehen.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="4"/><path d="M9 8.5c.6.6 1.4.6 2 0M9 20c0-2.2 1.3-4 3-4s3 1.8 3 4"/><path d="M5 20c0-1.6.7-3 1.8-3.9M19 20c0-1.6-.7-3-1.8-3.9"/></svg>
+          </div>
+          <h3>Kinderzahnheilkunde</h3>
+          <p>Einfühlsame, kindgerechte Behandlung, die schon den Kleinsten die Angst vor dem Zahnarztbesuch nimmt.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-3.3 3.6-6 8-6s8 2.7 8 6"/><path d="M4 10v3c0 3.3 3.6 6 8 6s8-2.7 8-6v-3"/><path d="M9 10v3M15 10v3"/></svg>
+          </div>
+          <h3>Zahnersatz</h3>
+          <p>Kronen, Brücken und Prothetik nach Maß – passgenau gefertigt für höchsten Tragekomfort.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.6-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.4-8 11-8 11Z"/></svg>
+          </div>
+          <h3>Angstpatienten-Betreuung</h3>
+          <p>Ruhige Atmosphäre, viel Zeit und behutsame Aufklärung – speziell für Patient:innen mit Zahnarztangst.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section class="gallery" id="praxis">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Einblicke</div>
+        <h2>Unsere Praxisräume</h2>
+        <p>Hier können später echte Fotos Ihrer Praxis eingesetzt werden – Behandlungszimmer, Empfang und Team.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Empfangsbereich · Platzhalter</div></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Behandlungszimmer · Platzhalter</div></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Behandlungsstuhl · Platzhalter</div></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1580281657702-257584239a55?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Wartebereich · Platzhalter</div></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Praxisteam · Platzhalter</div></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=525&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          <div class="g-overlay"><div class="g-title">Ihr Foto</div><div class="g-sub">Röntgenraum · Platzhalter</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="ueber-uns">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1571772805064-207c8435df79?w=700&h=875&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          </div>
+          <div class="about-img-accent">
+            <img src="https://images.unsplash.com/photo-1609207825181-52d3214556dd?w=400&h=400&fit=crop&auto=format&q=80" alt="Dummy-Bild – wird durch ein echtes Foto ersetzt" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="section-eyebrow">Über uns</div>
+          <h2>Zahnmedizin mit Zeit und Zuwendung seit 1998</h2>
+          <p>Die Zahnarztpraxis Dr. Lindner wurde mit dem Anspruch gegründet, Zahnmedizin verständlich, schmerzarm und ohne Zeitdruck anzubieten. Seit über 25 Jahren betreuen wir Familien in Salzburg über Generationen hinweg.</p>
+          <p>Unser Team aus erfahrenen Zahnärzt:innen und Assistenzkräften setzt auf moderne Diagnostik, kontinuierliche Weiterbildung und eine ruhige, freundliche Praxisatmosphäre.</p>
+          <div class="about-features">
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Digitales Röntgen</div>
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Schmerzfreie Behandlung</div>
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Terminerinnerung per SMS</div>
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Klimatisierte Behandlungsräume</div>
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Transparente Kostenaufstellung</div>
+            <div class="about-feat"><div class="check-dot"><svg viewBox="0 0 24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>Barrierefreier Zugang</div>
+          </div>
+          <a href="#kontakt" class="btn-primary">Jetzt Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">Patientenstimmen</div>
+        <h2>Was unsere Patient:innen sagen</h2>
+        <p>Vertrauen entsteht durch Zeit, Ehrlichkeit und eine ruhige Hand – das hören wir immer wieder.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Ich hatte jahrelang Angst vor Zahnarztbesuchen. Hier hat man sich wirklich Zeit genommen, mir alles erklärt und ich war zum ersten Mal völlig entspannt."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">SM</div>
+            <div>
+              <div class="t-name">S. Mayrhofer</div>
+              <div class="t-meta">Patientin seit 2019 · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Unsere ganze Familie geht seit Jahren zu Dr. Lindner. Besonders unsere Kinder fühlen sich dort sehr wohl – das ist keine Selbstverständlichkeit."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">TF</div>
+            <div>
+              <div class="t-name">T. Fuchs</div>
+              <div class="t-meta">Patient seit 2015 · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>„Sehr professionell, moderne Ausstattung und die Terminerinnerung per SMS ist ein kleines, aber sehr praktisches Detail. Kann ich nur empfehlen."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">MK</div>
+            <div>
+              <div class="t-name">M. Krainer</div>
+              <div class="t-meta">Neupatient · Google Bewertung</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="kontakt">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <div class="section-eyebrow">Kontakt &amp; Termine</div>
+          <h2>Termin vereinbaren</h2>
+          <p>Schreiben Sie uns oder rufen Sie an – wir melden uns zeitnah und finden gemeinsam einen passenden Termin.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div>
+                <div class="ci-lbl">Adresse</div>
+                <div class="ci-val">Getreidegasse 12<br>5020 Salzburg</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg></div>
+              <div>
+                <div class="ci-lbl">Telefon</div>
+                <div class="ci-val">+43 662 84 32 10</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+              <div>
+                <div class="ci-lbl">E-Mail</div>
+                <div class="ci-val">praxis@lindner-zahnarzt.at</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+              <div>
+                <div class="ci-lbl">Ordinationszeiten</div>
+                <div class="ci-val">Mo–Do: 08:00–17:00 Uhr<br>Fr: 08:00–13:00 Uhr</div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-map">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.0250%2C47.7950%2C13.0850%2C47.8250&layer=mapnik&marker=47.8095%2C13.0550"
+              title="Standort Zahnarztpraxis Dr. Lindner"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <h3>Termin anfragen</h3>
+          <form onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vorname</label>
+                <input type="text" placeholder="Anna" />
+              </div>
+              <div class="form-group">
+                <label>Nachname</label>
+                <input type="text" placeholder="Mustermann" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>E-Mail-Adresse</label>
+              <input type="email" placeholder="ihre@email.at" />
+            </div>
+            <div class="form-group">
+              <label>Telefon <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <input type="tel" placeholder="+43 662 123 456" />
+            </div>
+            <div class="form-group">
+              <label>Gewünschte Leistung</label>
+              <select>
+                <option value="">Bitte wählen …</option>
+                <option>Prophylaxe &amp; Zahnreinigung</option>
+                <option>Zahnästhetik &amp; Bleaching</option>
+                <option>Implantologie</option>
+                <option>Kinderzahnheilkunde</option>
+                <option>Zahnersatz</option>
+                <option>Angstpatienten-Betreuung</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nachricht <span style="font-weight:400;opacity:.6">(optional)</span></label>
+              <textarea placeholder="Ihre Wünsche oder Fragen …"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary">Anfrage absenden</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-demo-note">
+        <strong>Demo-Website:</strong> Alle Inhalte sind Platzhalter. Die Website erhalten Sie <strong>kostenlos</strong> –
+        Sie tragen lediglich die monatlichen Hosting- &amp; Administrationskosten.
+        Interesse? <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meine%20Zahnarztpraxis." target="_blank" rel="noopener" style="color:var(--accent-soft);font-weight:600;">💬 Jetzt auf WhatsApp melden</a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">Dr. Lindner <span>Zahnarztpraxis</span></a>
+          <p>Moderne, einfühlsame Zahnmedizin im Herzen von Salzburg – für die ganze Familie, mit Zeit und Ruhe für jede Behandlung.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="#leistungen">Prophylaxe</a></li>
+            <li><a href="#leistungen">Zahnästhetik</a></li>
+            <li><a href="#leistungen">Implantologie</a></li>
+            <li><a href="#leistungen">Kinderzahnheilkunde</a></li>
+            <li><a href="#leistungen">Zahnersatz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Praxis</h4>
+          <ul>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#praxis">Praxisräume</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#kontakt">Termin anfragen</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Zahnarztpraxis Dr. Lindner · Alle Rechte vorbehalten</span>
+        <span>Demo erstellt von <a href="https://www.steudler-it.com" target="_blank" rel="noopener">Steudler IT Solutions</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING DEMO BUTTON ── -->
+  <button class="demo-float" onclick="openModal()" aria-label="Demo-Info öffnen">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+    Demo-Website
+  </button>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Schließen">✕</button>
+      <span class="demo-badge">Demo-Website</span>
+      <h2 id="modalTitle">Ihre Praxis-Website – <em>kostenlos</em></h2>
+      <p>Diese Seite zeigt, wie der Online-Auftritt Ihrer Praxis aussehen könnte. Die gute Nachricht: <strong>Die Website bekommen Sie komplett kostenlos.</strong></p>
+      <p>Sie zahlen lediglich eine kleine monatliche Pauschale für Hosting &amp; Verwaltung – keine Einrichtungsgebühr, kein Risiko.</p>
+      <ul class="modal-features">
+        <li>Website-Erstellung &amp; Einrichtung: <strong>0 €</strong></li>
+        <li>Ihr Praxis-Name, Logo &amp; Farben</li>
+        <li>Ihre echten Fotos der Praxis &amp; des Teams</li>
+        <li>Ihre Leistungen &amp; Ordinationszeiten</li>
+        <li>Kartenansicht &amp; Terminanfrage-Formular</li>
+        <li>Monatliche Kosten: nur Hosting &amp; Domain</li>
+      </ul>
+      <div class="modal-buttons">
+        <a href="https://wa.me/436645070414?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20eigene%20Website%20f%C3%BCr%20meine%20Zahnarztpraxis." class="btn-primary" target="_blank" rel="noopener" onclick="closeModal()">💬 Auf WhatsApp anfragen</a>
+        <button class="btn-secondary" onclick="closeModal()">Demo weiter ansehen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Navigation ── */
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    /* ── Modal ── */
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* Show modal on first visit */
+    if (!sessionStorage.getItem('demoModalSeen')) {
+      setTimeout(function() {
+        openModal();
+        sessionStorage.setItem('demoModalSeen', '1');
+      }, 1200);
+    }
+
+    /* ── Contact form (demo) ── */
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Demo – Formular nicht verknüpft';
+      btn.disabled = true;
+      btn.style.background = '#4ade80';
+      btn.style.color = '#14532d';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Hero mini form (demo) ── */
+    function handleMiniForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.textContent = '✓ Angefragt';
+      btn.disabled = true;
+      btn.style.background = '#4ade80';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
